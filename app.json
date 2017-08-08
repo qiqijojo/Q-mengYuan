@@ -3,7 +3,7 @@
     
     "pages/index/index",
     "pages/pals/pal",
-    "pages/logs/logs"
+    "pages/user/user"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -21,7 +21,7 @@
       "text": "萌友"
     },
     {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/user/user",
       "text": "我的"
     }]
   }

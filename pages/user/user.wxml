@@ -1,0 +1,4 @@
+<!--pages/user/user.wxml-->
+<view class="userCenter">
+  <text>个人中心页面</text>  
+</view>
