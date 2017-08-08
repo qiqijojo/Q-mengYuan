@@ -1,0 +1,11 @@
+/* pages/pals/pal.wxss */
+.pals{
+  width:100%;
+  height:100%;
+}
+.top1{
+  margin-top: 30px;
+}
+.tip2{
+  margin-top: 20px;
+}

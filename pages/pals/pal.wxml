@@ -1,0 +1,11 @@
+<!--pages/pals/pal.wxml-->
+<view class="pals">
+  <view class="tip1">
+  <text>这里显示我的萌友列表</text>
+</view>
+<view class="tip2">
+  <text>若暂时没有萌友就显示”您还没有找到萌友哦“</text>
+</view>
+</view>
+
+
