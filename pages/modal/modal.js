@@ -7,7 +7,7 @@ Page({
    */
   data: {
     anonymity: 'qiqijojo',
-    imgUrl: '../images/user.jpg'
+    imgUrl: '../images/user.jpg',
   },
   //事件处理函数
   backIndex: function () {
