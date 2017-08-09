@@ -1,0 +1,21 @@
+<!--pages/modal/modal.wxml-->
+<view class="container">
+  <view class="modal">
+    <text>
+      以下是您的Q萌缘信息
+    </text>
+    <view class="info">
+      <view>
+        <image src="{{imgUrl}}" mode="aspectFit"></image>
+      </view>
+      <view>
+        <text>Q昵称：{{anonymity}}</text>
+      </view>
+    </view>
+    <view class="fillCharacter">
+      <input type="text" name="myCharacter" placeholder="请简单填写您的性格" />
+      <input type="text" name="peerCharacter" placeholder="请填写期望萌友的性格" />
+    </view>
+      <button size="mini" plain="true" bindtap="backIndex">确认</button>
+  </view>
+</view>
