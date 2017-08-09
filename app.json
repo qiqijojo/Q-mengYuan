@@ -1,9 +1,9 @@
 {
   "pages":[
-    
     "pages/index/index",
     "pages/pals/pal",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -22,7 +22,7 @@
     },
     {
       "pagePath": "pages/user/user",
-      "text": "我的"
+      "text": "个人中心"
     }]
   }
 }
