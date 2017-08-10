@@ -1,6 +1,7 @@
 /**index.wxss**/
 .indexImage{
-  width: inherit
+  width: inherit;
+  position: relative;
 }
 .indexImage image{
   width:inherit;
@@ -8,12 +9,17 @@
 }
 .hotText{
   margin:20px auto;
+  color: #aaa;
 }
 .hotText::before{
-  content: '-----------'
+  content: '--------------';
+  position:absolute;
+  left: 0;
 }
 .hotText::after{
-  content: '-----------'
+  content: '--------------';
+  position:absolute;
+  right: 0;
 }
 .showbox{
   width:inherit;
