@@ -1,10 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="indexImage">
+    <image src="../images/indexImg.jpg"></image>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <view class="hotText">热门</view>
+ 
+    <view class="showbox">
+      <view class="dataList"  wx:for="{{showData}}" wx:key="id">
+        <image src="{{item.userImage}}"></image>
+        <text>{{item.userName}}</text>
+        <view class="content">{{item.showContent}}</view>
+        <text>{{item.subTime}}发表</text>
+        <view class="line"></view>
+      </view>
+    </view>
+ 
 </view>

@@ -1,21 +1,46 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.indexImage{
+  width: inherit
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+.indexImage image{
+  width:inherit;
+   height: 200px; 
+}
+.hotText{
+  margin:20px auto;
+}
+.hotText::before{
+  content: '-----------'
+}
+.hotText::after{
+  content: '-----------'
+}
+.showbox{
+  width:inherit;
+   text-align: left; 
+}
+.dataList{
+  width: inherit;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-top:1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+}
+.dataList image{
+  width:50px;
+  height:50px;
+  float: left;
   border-radius: 50%;
+} 
+.dataList text:nth-of-type(1){
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 60px;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.dataList .content{
+  margin:10px 0;
 }
-
-.usermotto {
-  margin-top: 200px;
+.dataList text:nth-of-type(2){
+  font-size: 14px;
 }
