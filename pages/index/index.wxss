@@ -17,11 +17,10 @@
 }
 .showbox{
   width:inherit;
-   text-align: left; 
+  text-align: left; 
 }
 .dataList{
   width: inherit;
-  padding: 10px;
   margin-bottom: 10px;
   border-top:1px solid #ccc;
   border-bottom: 1px solid #ccc; 
@@ -40,6 +39,7 @@
 }
 .dataList .content{
   margin:10px 0;
+  padding: 5px 10px;
 }
 .dataList text:nth-of-type(2){
   font-size: 14px;
