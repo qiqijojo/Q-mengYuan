@@ -10,8 +10,8 @@
         <image src="{{item.userImage}}"></image>
         <text>{{item.userName}}</text>
         <view class="content">{{item.showContent}}</view>
-        <text>{{item.subTime}}发表</text>
-        <view class="line"></view>
+        <view class="pubDate">{{item.subTime}}发表</view>
+        <button type="primary">Q</button>
       </view>
     </view>
  

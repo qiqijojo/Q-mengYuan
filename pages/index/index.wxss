@@ -4,7 +4,7 @@
 }
 .indexImage image{
   width:inherit;
-   height: 200px; 
+  height: 200px; 
 }
 .hotText{
   margin:20px auto;
@@ -20,6 +20,7 @@
   text-align: left; 
 }
 .dataList{
+  position: relative;
   width: inherit;
   margin-bottom: 10px;
   border-top:1px solid #ccc;
@@ -31,16 +32,31 @@
   float: left;
   border-radius: 50%;
 } 
-.dataList text:nth-of-type(1){
+.dataList text{
   display: block;
+  color: #777;
   height: 50px;
   line-height: 50px;
   margin-left: 60px;
 }
 .dataList .content{
-  margin:10px 0;
+  font-size: 14px;
+  margin:15px 0;
   padding: 5px 10px;
 }
-.dataList text:nth-of-type(2){
-  font-size: 14px;
+.dataList .pubDate{
+  font-size: 12px;
+  margin-left: 10px;
+  color: #aaa;
+}
+.dataList button{
+  font-size: 12px;
+  width: 30px; 
+  height: 30px; 
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%; 
+  position: absolute;
+  right:10px;
+  bottom: 0;
 }
