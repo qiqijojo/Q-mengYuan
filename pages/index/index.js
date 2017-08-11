@@ -77,7 +77,7 @@ Page({
         "pageIndex": 0,
         "pageSize": 10
       },
-      method:'GET',
+      method:'POST',
       header: {
       'content-type': 'application/json'
   },
