@@ -10,6 +10,7 @@
 .hotText{
   margin:20px auto;
   color: #aaa;
+  font-size: 12px;
 }
 .hotText::before{
   content: '--------------';
