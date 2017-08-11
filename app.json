@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/pals/pal",
+    "pages/friends/friends",
     "pages/user/user",
     "pages/logs/logs"
   ],
@@ -12,17 +12,30 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    },
-    {
-      "pagePath": "pages/pals/pal",
-      "text": "萌友"
-    },
-    {
-      "pagePath": "pages/user/user",
-      "text": "个人中心"
-    }]
-  }
+    "color": "#6e6d6b",
+    "selectedColor": "#d81e06",
+    "borderStyle": "white",
+    "backgroundColor": "#292929",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/friends/friends",
+        "iconPath": "images/friends.png",
+        "selectedIconPath": "images/friends_1.png",
+        "text": "萌友"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/center.png",
+        "selectedIconPath": "images/center_1.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "debug": true
 }
