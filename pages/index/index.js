@@ -69,18 +69,22 @@ Page({
    }]
    },
   //事件处理函数
-
+  goPalsInfo:function(){
+    wx.navigateTo({
+      url: '',
+    })
+  },
   onLoad: function () {
     wx.request({
-      url: '172.18.33.2/api/message/getMessages',
+      url: 'http://172.18.33.2/api/message/getMessages',
       data: {
         "pageIndex": 0,
         "pageSize": 10
       },
       method:'POST',
       header: {
-      'content-type': 'application/json'
-  },
+        'content-type': 'application/json'
+      },
       success:function(res){
         console.log(res.data)
       }
