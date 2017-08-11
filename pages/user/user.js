@@ -45,5 +45,12 @@ Page( {
         })
       },1000)
     })
+  },
+  onShareAppMessage: function (){
+    return {
+      title: '萌缘',
+      desc: '最具人气的小程序开发联盟!',
+      path: '/page/user?id=123'
+    }
   }
 })

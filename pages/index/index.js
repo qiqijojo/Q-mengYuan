@@ -72,7 +72,7 @@ Page({
 
   onLoad: function () {
     wx.request({
-      url: '172.18.33.2/api/message/getMessages',
+      url: 'http://172.18.33.2/api/message/getMessages',
       data: {
         "pageIndex": 0,
         "pageSize": 10
@@ -80,19 +80,32 @@ Page({
       method:'POST',
       header: {
       'content-type': 'application/json'
-  },
+      },
       success:function(res){
-        console.log(res.data)
+        console.log(res.data,"###########")
       }
     })
     this.setData({sourceData: this.data.showData.sort(function(a,b){
-      if(a['subTime']>b['subTime']){
-        return -1;
-      } else if (a['subTime'] < b['subTime']){
-        return 1;
+        if(a['subTime']>b['subTime']){
+          return -1;
+        } else if (a['subTime'] < b['subTime']){
+          return 1;
         }
       })
     });
+    wx.getSetting({
+    success(res) {
+        if (!res.authSetting['scope.record']) {
+            wx.authorize({
+              scope: 'scope.userInfo',
+                success() {
+                  //用户信息
+                  wx.getUserInfo()
+                }
+            })
+        }
+    }
+})
   },
   onShow:function(){
 
