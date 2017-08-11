@@ -3,7 +3,8 @@
 var app = getApp()
 Page({
   data: {
-   showData:[{
+    sourceData:[],
+    showData:[{
       id:'1',
       userImage:'../images/user.jpg',
       userName:'qiqijojo',
@@ -68,9 +69,24 @@ Page({
    }]
    },
   //事件处理函数
- 
+//   compare: function(property){
+//    return function(obj1,obj2){
+//      var a = obj1[property];
+//      var b = obj2[property];
+//      return b>a;
+//    }
+//  },
   onLoad: function () {
-    console.log(this.data.showData)
-    
+    this.setData({sourceData: this.data.showData.sort(function(a,b){
+      if(a['subTime']>b['subTime']){
+        return -1;
+      } else if (a['subTime'] < b['subTime']){
+        return 1;
+        }
+      })
+    });
+  },
+  onShow:function(){
+
   }
 })

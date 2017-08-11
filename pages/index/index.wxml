@@ -6,7 +6,7 @@
   <view class="hotText">热门</view>
  
     <view class="showbox">
-      <view class="dataList"  wx:for="{{showData}}" wx:key="id">
+      <view class="dataList"  wx:for="{{sourceData}}" wx:key="id">
         <image src="{{item.userImage}}"></image>
         <text>{{item.userName}}</text>
         <view class="content">{{item.showContent}}</view>
