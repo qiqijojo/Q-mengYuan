@@ -6,11 +6,11 @@
   <view class="hotText">热门</view>
  
     <view class="showbox">
-      <view class="dataList"  wx:for="{{sourceData}}" wx:key="id">
+      <view class="dataList"  wx:for="{{showData}}" wx:key="index">
         <image src="{{item.userImage}}"></image>
-        <text>{{item.userName}}</text>
-        <view class="content">{{item.showContent}}</view>
-        <view class="pubDate">{{item.subTime}}发表</view>
+        <text bindtap="goPalsInfo">qqqqqqqqq</text>
+        <view class="content">{{item.content}}</view>
+        <view class="pubDate">{{item.publish_time}}发表</view>
         <button type="primary">Q</button>
       </view>
     </view>
