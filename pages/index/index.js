@@ -90,13 +90,26 @@ Page({
       }
     })
     this.setData({sourceData: this.data.showData.sort(function(a,b){
-      if(a['subTime']>b['subTime']){
-        return -1;
-      } else if (a['subTime'] < b['subTime']){
-        return 1;
+        if(a['subTime']>b['subTime']){
+          return -1;
+        } else if (a['subTime'] < b['subTime']){
+          return 1;
         }
       })
     });
+    wx.getSetting({
+    success(res) {
+        if (!res.authSetting['scope.record']) {
+            wx.authorize({
+              scope: 'scope.userInfo',
+                success() {
+                  //用户信息
+                  wx.getUserInfo()
+                }
+            })
+        }
+    }
+})
   },
   onShow:function(){
 
