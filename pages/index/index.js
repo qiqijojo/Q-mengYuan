@@ -69,14 +69,22 @@ Page({
    }]
    },
   //事件处理函数
-//   compare: function(property){
-//    return function(obj1,obj2){
-//      var a = obj1[property];
-//      var b = obj2[property];
-//      return b>a;
-//    }
-//  },
+
   onLoad: function () {
+    wx.request({
+      url: '172.18.33.2/api/message/getMessages',
+      data: {
+        "pageIndex": 0,
+        "pageSize": 10
+      },
+      method:'GET',
+      header: {
+      'content-type': 'application/json'
+  },
+      success:function(res){
+        console.log(res.data)
+      }
+    })
     this.setData({sourceData: this.data.showData.sort(function(a,b){
       if(a['subTime']>b['subTime']){
         return -1;
