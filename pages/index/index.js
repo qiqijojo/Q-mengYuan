@@ -55,4 +55,7 @@ Page({
     that.setData({pageIndex: that.data.pageIndex+1});
     that.getAllItems();
   },
+  onPullDownRefresh:function(){
+    console.log('刷新新上传的数据~~~')
+  }
 })
