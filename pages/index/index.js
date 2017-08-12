@@ -4,7 +4,9 @@ var app = getApp()
 Page({
   data: {
     userImage:'../images/user.jpg',
-    showData:[]
+    showData:[],
+    perData:[],
+    pageIndex:0,
    },
   //事件处理函数
   goPalsInfo:function(){
@@ -12,20 +14,13 @@ Page({
       url: '../../palInfo/palInfo',
     })
   },
-  timeFormat:function(time){
-    var a = 2;
-    a.map((item) => {
-      item.unshift({ 'userImage': this.data.userImage });
-      return item;
-    })
-  },
   getAllItems:function(){
     var that = this;
     wx.request({
       url: 'http://172.18.33.2/api/message/getMessages',
       data: {
-        "pageIndex": 0,
-        "pageSize": 10
+        pageIndex:this.data.pageIndex,
+        pageSize:10
       },
       method: 'POST',
       header: {
@@ -33,19 +28,32 @@ Page({
       },
       success: function (res) {
         that.setData({
-          showData: res.data.data.map((item) => {
+          perData: res.data.data.map((item) => {
            return Object.assign(item,{ 'userImage': that.data.userImage });
           })
         });
-        console.log(that.data.showData)
+        if(that.data.perData.length>0){
+          console.log(that.data.showData)
+            that.setData({
+              showData: that.data.showData.concat(that.data.perData)
+            })
+        }
       },      
+      fail:function(err){
+         console.log(err)       
+      }
     });
-    console.log(that.data.showData)
   },
   onLoad: function () {
     this.getAllItems();
   },
    onShow:function(){
      
-  }
+  },
+  onReachBottom: function(){
+    var that = this;
+    that.setData({pageIndex: that.data.pageIndex+1});
+    that.getAllItems();
+
+  },
 })

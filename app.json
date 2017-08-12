@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/friends/friends",
     "pages/user/user",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/palInfo/palInfo"
   ],
   "window":{
     "backgroundTextStyle":"light",
