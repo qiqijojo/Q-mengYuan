@@ -4,17 +4,36 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <view class="info_list">
-    <block wx:for="{{userListInfo}}">
-        <view class="weui_cell">
-            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> {{item.text}} </view>
-            </view>
-            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
-            <view class="with_arrow"></view>
-        </view>
-    </block>
+  <view class="my_charact">
+    <label>我的性格：</label>
+    <textarea name="userName" auto-height /> 
   </view>
+  <view class="other_charact">
+    <label>他的性格：</label>
+    <textarea name="othersName" auto-height />
+  </view>
+  <view class="section_box">
+    <view class="box_l">
+      <view class="box_joke">
+        <image src="../../images/joke_icon.png"></image>
+      </view>
+      <text>笑话</text>
+    </view>
+    <view class="box_c">
+      <view class="box_photo">
+        <image src="../../images/photo_icon.png"></image>
+      </view>
+      <text>照片</text>
+    </view>
+    <view class="box_r">
+      <view class="box_movie">
+        <image src="../../images/movie_icon.png"></image>
+      </view>
+      <text>视频</text>
+    </view>
+  </view>
+  <view class="upload_btn">
+    <button type="primary">上传</button>
+    </view>
   <loading hidden="{{hiddenLoading}}">加载中...</loading>
 </view>
