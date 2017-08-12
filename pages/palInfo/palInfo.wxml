@@ -1,2 +1,5 @@
 <!--pages/palInfo/palInfo.wxml-->
+<view class="ss">
 <text>查看用户信息页</text>
+</view>
+

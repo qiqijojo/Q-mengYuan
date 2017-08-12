@@ -11,7 +11,7 @@ Page({
   //事件处理函数
   goPalsInfo:function(){
     wx.navigateTo({
-      url: '../../palInfo/palInfo',
+      url: '../palInfo/palInfo',
     })
   },
   getAllItems:function(){
@@ -54,6 +54,5 @@ Page({
     var that = this;
     that.setData({pageIndex: that.data.pageIndex+1});
     that.getAllItems();
-
   },
 })
