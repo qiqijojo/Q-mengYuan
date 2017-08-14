@@ -27,18 +27,21 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        that.setData({
-          perData: res.data.data.map((item) => {
-           return Object.assign(item,{ 'userImage': that.data.userImage });
-          })
-        });
-        if(that.data.perData.length>0){
-          console.log(that.data.showData)
-            that.setData({
-              showData: that.data.showData.concat(that.data.perData)
+        if(res.data.code === 0){
+          that.setData({
+            perData: res.data.data.map((item) => {
+            return Object.assign(item,{ 'userImage': that.data.userImage });
             })
-        }else if(res.data.code === -1){
-          console.log('没有数据了！！')
+          });
+          if(that.data.perData.length>0){
+              that.setData({
+                showData: that.data.showData.concat(that.data.perData)
+              })
+          }
+        } else if (res.data.code === -1) {
+            that.setData({
+              perData: []
+            })
         }
       },      
       fail:function(err){
@@ -47,30 +50,44 @@ Page({
     });
   },
   onLoad: function () {
-    this.getAllItems();
-   
-  },
-  onReady: function(){
-     wx.getSetting({
-      success(res){
-        if(!res.authSetting['scope.userInfo']){
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
           wx.authorize({
             scope: 'scope.userInfo',
-            success(){
+            success() {
               wx.getUserInfo()
             }
           })
         }
       }
     })
+    this.getAllItems();
+  },
+  onReady: function(){
+    
   },
   onShow: function(){
      
   },
   onReachBottom: function(){
-    var that = this;
-    that.setData({pageIndex: that.data.pageIndex+1});
-    that.getAllItems();
+    if (this.data.perData.length === 0){
+      wx.showToast({
+        title: '没有数据了！',
+        mask: true,
+        duration: 2000,
+        icon:'success',
+        success:function(res){
+          console.log(res)
+        },
+        fail:function(res){
+          console.log(res)
+        }
+      })
+    }else{
+      this.setData({ pageIndex: this.data.pageIndex + 1 });
+      this.getAllItems();
+    }
   },
   onShareAppMessage:function(res){
     return {
