@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--user.wxml-->
 <view class="container">
   <view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -13,20 +13,20 @@
     <textarea name="othersName" auto-height />
   </view>
   <view class="section_box">
-    <view class="box_l">
+    <view bindtap="jump" class="box_l">
       <view class="box_joke">
         <image src="../../images/joke_icon.png"></image>
       </view>
       <text>笑话</text>
     </view>
     <view class="box_c">
-      <view class="box_photo">
+      <view bindtap="jump" class="box_photo">
         <image src="../../images/photo_icon.png"></image>
       </view>
       <text>照片</text>
     </view>
     <view class="box_r">
-      <view class="box_movie">
+      <view bindtap="jump" class="box_movie">
         <image src="../../images/movie_icon.png"></image>
       </view>
       <text>视频</text>

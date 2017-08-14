@@ -1,17 +1,27 @@
-var app = getApp();
+var app = getApp()
 Page( {
   data: {
     userInfo: {},
     hiddenLoading: false,
-    projectSource: 'https://github.com/liuxuanqiang/wechat-weapp-mall'
+    projectSource: 'https://github.com/liuxuanqiang/wechat-weapp-mall',
+    tabs: ['笑话','照片','视频'],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
-
+  tabClick: function (e){
+    console.log(e.currentTarget.offsetLeft,"########");
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.activeIndex
+    })
+  },
   onLoad: function() {
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo( function( userInfo ) {
       //更新数据
-      that.setData( {
+      that.setData({
         userInfo: userInfo
       })
       setTimeout(function(){
@@ -19,12 +29,6 @@ Page( {
           hiddenLoading: true
         })
       },1000)
-    })
-  },
-  //页面跳转
-  jump: function (){
-    wx.navigateTo({
-      url: '../history/history'
     })
   },
   onShareAppMessage: function (){
