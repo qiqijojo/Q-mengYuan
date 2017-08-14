@@ -37,6 +37,8 @@ Page({
             that.setData({
               showData: that.data.showData.concat(that.data.perData)
             })
+        }else if(res.data.code === -1){
+          console.log('没有数据了！！')
         }
       },      
       fail:function(err){
@@ -69,9 +71,6 @@ Page({
     var that = this;
     that.setData({pageIndex: that.data.pageIndex+1});
     that.getAllItems();
-  },
-  onPullDownRefresh:function(){
-    console.log('刷新新上传的数据~~~')
   },
   onShareAppMessage:function(res){
     return {
