@@ -56,7 +56,7 @@ Page({
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
-              wx.getUserInfo()
+              console.log(wx.getUserInfo())
             }
           })
         }
@@ -76,7 +76,6 @@ Page({
         title: '没有数据了！',
         mask: true,
         duration: 2000,
-        icon:'success',
         success:function(res){
           console.log(res)
         },
