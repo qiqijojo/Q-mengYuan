@@ -4,7 +4,8 @@
     "pages/friends/friends",
     "pages/user/user",
     "pages/logs/logs",
-    "pages/palInfo/palInfo"
+    "pages/palInfo/palInfo",
+    "pages/history/history"
   ],
   "window":{
     "enablePullDownRefresh": true,

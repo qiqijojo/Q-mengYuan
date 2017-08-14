@@ -1,0 +1,14 @@
+<!--history.wxml-->
+<view class="page_hy">
+  <view class="page_tabs">
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="page_tabs_navBar" bindtap="tabClick">
+        <view class="page_tabs_title">{{item}}</view>
+      </view>
+    </block>
+    <view class="page_tabs_slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view> 
+  </view>
+  <view class="page_content">
+    
+  </view>
+</view>
