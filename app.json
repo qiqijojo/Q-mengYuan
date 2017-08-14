@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/modal/modal",
     "pages/index/index",
     "pages/friends/friends",
     "pages/user/user",

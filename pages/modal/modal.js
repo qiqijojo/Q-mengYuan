@@ -1,5 +1,5 @@
 // pages/modal/modal.js
-
+var app = getApp();
 Page({
 
   /**
@@ -8,19 +8,60 @@ Page({
   data: {
     anonymity: 'qiqijojo',
     imgUrl: '../images/user.jpg',
+    wechat: '',
+    sex:1,
+    gender:'',
+    nature: '',
+    expect: ''
   },
   //事件处理函数
   backIndex: function () {
-    wx.navigateTo({
-      url: '../index/index'
+    wx.request({
+      url: 'http://172.18.33.2/api/user/signup',
+      data:{
+        wechat:this.data.wechat,
+        gender:this.data.gender,
+        nature:this.data.nature,
+        expect:this.data.expect
+      },
+      method:'POST',
+      success:function(res){
+        console.log(res)
+      }
+    })
+    // wx.switchTab({
+    //   url: '../index/index',
+      
+    // })
+  },
+  bindMyCharacter:function(e){
+    this.setData({
+      nature:e.detail.value
     })
   },
-
+  bindPeerCharacter:function(e){
+    this.setData({
+      expect:e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function () {
+    var that = this;
+    app.getUserInfo(function (wechat){
+      that.setData({
+        wechat: wechat.nickName
+      },{
+        sex:wechat.gender
+      });
+      console.log(wechat)
+    });
+    if (that.data.sex === 1){
+      that.setData({gender:'MAIL'})
+    } else if (that.data.sex === 2){
+      that.setData({gender:'FEMAIL'})
+    }
   },
 
   /**
