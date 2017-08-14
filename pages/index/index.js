@@ -37,6 +37,8 @@ Page({
             that.setData({
               showData: that.data.showData.concat(that.data.perData)
             })
+        }else if(res.data.code === -1){
+          console.log('没有数据了！！')
         }
       },      
       fail:function(err){
@@ -46,8 +48,23 @@ Page({
   },
   onLoad: function () {
     this.getAllItems();
+   
   },
-   onShow:function(){
+  onReady: function(){
+     wx.getSetting({
+      success(res){
+        if(!res.authSetting['scope.userInfo']){
+          wx.authorize({
+            scope: 'scope.userInfo',
+            success(){
+              wx.getUserInfo()
+            }
+          })
+        }
+      }
+    })
+  },
+  onShow: function(){
      
   },
   onReachBottom: function(){
@@ -55,7 +72,17 @@ Page({
     that.setData({pageIndex: that.data.pageIndex+1});
     that.getAllItems();
   },
-  onPullDownRefresh:function(){
-    console.log('刷新新上传的数据~~~')
+  onShareAppMessage:function(res){
+    return {
+      title:'Q萌缘分享测试',
+      desc:'最具人气的交友平台',
+      path:'pages/index/index',
+      success:function(res){
+        console.log('转发成功')
+      },
+      fail:function(res){
+        console.log('转发失败')
+      }
+    }
   }
 })

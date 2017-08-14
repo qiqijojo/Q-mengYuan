@@ -10,7 +10,7 @@
         <image src="{{item.userImage}}"></image>
         <text bindtap="goPalsInfo">qqqqqqqqq</text>
         <view class="content">{{item.content}}</view>
-        <view class="pubDate">{{item.publish_time}}发表</view>
+        <view class="pubDate">发布于{{item.publish_time}}</view>
         <button type="primary">Q</button>
       </view>
     </view>
