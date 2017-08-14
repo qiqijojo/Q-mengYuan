@@ -45,7 +45,7 @@ Page({
     });
   },
   onLoad: function () {
-    // this.getAllItems();
+    this.getAllItems();
    
   },
   onReady: function(){
@@ -68,7 +68,7 @@ Page({
   onReachBottom: function(){
     var that = this;
     that.setData({pageIndex: that.data.pageIndex+1});
-    // that.getAllItems();
+    that.getAllItems();
   },
   onPullDownRefresh:function(){
     console.log('刷新新上传的数据~~~')
