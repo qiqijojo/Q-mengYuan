@@ -56,7 +56,9 @@ Page({
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
-              console.log(wx.getUserInfo())
+              wx.navigateTo({
+                url: '../modal/modal',
+              })
             }
           })
         }

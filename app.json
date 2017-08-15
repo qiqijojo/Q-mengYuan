@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/modal/modal",
     "pages/index/index",
+    "pages/modal/modal",
+    
     "pages/friends/friends",
     "pages/user/user",
     "pages/logs/logs",
