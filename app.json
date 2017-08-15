@@ -1,19 +1,19 @@
 {
-  "pages":[
-    "pages/modal/modal",
+  "pages": [
     "pages/index/index",
     "pages/friends/friends",
     "pages/user/user",
     "pages/logs/logs",
     "pages/palInfo/palInfo",
+    "pages/upload/upload",
     "pages/history/history"
   ],
-  "window":{
+  "window": {
     "enablePullDownRefresh": false,
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Q萌缘",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#6e6d6b",

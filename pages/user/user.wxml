@@ -13,27 +13,27 @@
     <textarea name="othersName" auto-height />
   </view>
   <view class="section_box">
-    <view bindtap="jump" class="box_l">
+    <view class="box_l" data-id="1" bindtap="jumpToHistory">
       <view class="box_joke">
         <image src="../../images/joke_icon.png"></image>
       </view>
       <text>笑话</text>
     </view>
     <view class="box_c">
-      <view bindtap="jump" class="box_photo">
+      <view class="box_photo" data-id="2" bindtap="jumpToHistory">
         <image src="../../images/photo_icon.png"></image>
       </view>
       <text>照片</text>
     </view>
     <view class="box_r">
-      <view bindtap="jump" class="box_movie">
+      <view class="box_movie" data-id="3"  bindtap="jumpToHistory">
         <image src="../../images/movie_icon.png"></image>
       </view>
       <text>视频</text>
     </view>
   </view>
-  <view class="upload_btn">
-    <button type="primary">上传</button>
+  <view class="upload_btn" bindtap="jumpToUpload">
+    <button type="primary">进入上传页面</button>
     </view>
   <loading hidden="{{hiddenLoading}}">加载中...</loading>
 </view>

@@ -1,14 +1,21 @@
 <!--history.wxml-->
 <view class="page_hy">
-  <view class="page_tabs">
-    <block wx:for="{{tabs}}" wx:key="*this">
-      <view id="{{index}}" class="page_tabs_navBar" bindtap="tabClick">
-        <view class="page_tabs_title">{{item}}</view>
-      </view>
-    </block>
-    <view class="page_tabs_slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view> 
+  <view class="page_title">
+      <text class="page_title__joke" wx:if="{{titleId == 1}}">笑话</text>
+      <text class="page_title__photo" wx:if="{{titleId == 2}}">照片</text>
+      <text class="page_title__movie" wx:if="{{titleId == 3}}">视频</text>
   </view>
-  <view class="page_content">
-    
+  <view class="page_warp">
+    <view class="page_item">
+      <view class="page_item__header">
+        <text>发布于2018-1-5</text>
+      </view>
+      <view class="page_item__content">
+        <text>今天天气很好！</text>
+        <view class="page_item__delete">
+          <image src="../../images/delete1.png"></image>
+        </view>
+      </view>
+    </view>  
   </view>
 </view>

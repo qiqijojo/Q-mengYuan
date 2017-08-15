@@ -1,4 +1,4 @@
-var app = getApp();
+const app = getApp();
 Page( {
   data: {
     userInfo: {},
@@ -7,7 +7,7 @@ Page( {
   },
 
   onLoad: function() {
-    var that = this
+    const that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo( function( userInfo ) {
       //更新数据
@@ -21,10 +21,17 @@ Page( {
       },1000)
     })
   },
-  //页面跳转
-  jump: function (){
+  //跳转到历史记录页面
+  jumpToHistory: function (e) {
+    const id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../history/history'
+      url: '../history/history?id='+id
+    })
+  },
+  //跳转到上传页面
+  jumpToUpload: function (){
+    wx.navigateTo({
+      url: '../upload/upload'
     })
   },
   onShareAppMessage: function (){
