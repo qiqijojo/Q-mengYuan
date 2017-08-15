@@ -13,8 +13,8 @@
       </view>
     </view>
     <view class="fillCharacter">
-      <input type="text" name="myCharacter" placeholder="请简单填写您的性格" />
-      <input type="text" name="peerCharacter" placeholder="请填写期望萌友的性格" />
+      <input type="text" bindinput="bindMyCharacter" name="myCharacter" placeholder="请简单填写您的性格" />
+      <input type="text" bindinput="bindPeerCharacter" name="peerCharacter" placeholder="请填写期望萌友的性格" />
     </view>
       <button size="mini" plain="true" bindtap="backIndex">确认</button>
   </view>
