@@ -6,14 +6,15 @@
     "pages/user/user",
     "pages/logs/logs",
     "pages/palInfo/palInfo",
+    "pages/upload/upload",
     "pages/history/history"
   ],
-  "window":{
+  "window": {
     "enablePullDownRefresh": false,
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Q萌缘",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#666",

@@ -1,41 +1,99 @@
+// history.js
 var app = getApp()
-Page( {
+Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    userInfo: {},
-    hiddenLoading: false,
-    projectSource: 'https://github.com/liuxuanqiang/wechat-weapp-mall',
-    tabs: ['笑话','照片','视频'],
-    activeIndex: 0,
-    sliderOffset: 0,
-    sliderLeft: 0
+    titleId: 1, 
+    content: ""
   },
-  tabClick: function (e){
-    console.log(e.currentTarget.offsetLeft,"########");
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'http://172.18.33.2/api/message/getMessageByWechatAndType', 
+      data: {
+        "wechat": "wangquan19921010",
+        "type": "String",
+        "pageIndex": 0,
+        "pageSize": 10
+      },
+      method: 'POST',
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        debugger;
+        console.log(res.data,"resData");
+        if(res.code == 0){
+          that.setData({
+             content: res.data.data.forEach((item) => {
+                return Object.assign({},item.content);
+             }) 
+          })
+          console.log(content,"content");
+        }
+      },
+      fail: function (){
+
+      }
+    });
     this.setData({
-      sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: e.currentTarget.activeIndex
+      titleId: options.id || 1 //获取url的参数判断title的文案
     })
   },
-  onLoad: function() {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo( function( userInfo ) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo
-      })
-      setTimeout(function(){
-        that.setData({
-          hiddenLoading: true
-        })
-      },1000)
-    })
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
   },
-  onShareAppMessage: function (){
-    return {
-      title: '萌缘',
-      desc: '最具人气的小程序开发联盟!',
-      path: '/page/user?id=123'
-    }
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
   }
 })
