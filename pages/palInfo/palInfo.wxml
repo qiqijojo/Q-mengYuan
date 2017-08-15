@@ -1,5 +1,36 @@
 <!--pages/palInfo/palInfo.wxml-->
-<view class="ss">
-<text>查看用户信息页</text>
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="../images/user.jpg" background-size="cover"></image>
+    <text class="userinfo-nickname">qiqijojo</text>
+  </view>
+  <view class="my_charact">
+    <label>本人性格：</label>
+    <textarea name="userName" auto-height /> 
+  </view>
+  <view class="other_charact">
+    <label>对方性格：</label>
+    <textarea name="othersName" auto-height />
+  </view>
+  <view class="section_box">
+    <view bindtap="jump" class="box_l">
+      <view class="box_joke">
+        <image src="../../images/joke_icon.png"></image>
+      </view>
+      <text>笑话</text>
+    </view>
+    <view class="box_c">
+      <view bindtap="jump" class="box_photo">
+        <image src="../../images/photo_icon.png"></image>
+      </view>
+      <text>照片</text>
+    </view>
+    <view class="box_r">
+      <view bindtap="jump" class="box_movie">
+        <image src="../../images/movie_icon.png"></image>
+      </view>
+      <text>视频</text>
+    </view>
+  </view>
 </view>
 
