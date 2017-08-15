@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: 50rpx 0;
   align-items: center;
-  background: #f9f027;
+  background: #F7B9A7;
 }
 .userinfo-avatar {
   width: 128rpx;
@@ -100,47 +100,50 @@ textarea {
 .section_box .box_joke {
   width: 80rpx;
   height: 80rpx;
-  border: 1px solid #f9f027;
+  border: 1px solid #ccc;
   padding: 30rpx;
   margin: 0 auto;
   border-radius: 50%;
+  margin-bottom:16rpx;
 }
 .section_box .box_photo {
   width: 80rpx;
   height: 80rpx;
-  border: 1px solid #1296db;
+  border: 1px solid #ccc;
   padding: 30rpx;
   margin: 0 auto;
   border-radius: 50%;
+  margin-bottom:16rpx;
 }
 .section_box .box_movie {
   width: 80rpx;
   height: 80rpx;
-  border: 1px solid #d81e06;
+  border: 1px solid #ccc;
   padding: 30rpx;
   margin: 0 auto;
   border-radius: 50%;
+  margin-bottom:16rpx;
 }
 .section_box image {
   width: 80rpx;
   height: 80rpx;
 }
 .section_box .box_l text {
-  font-size: 35rpx;
-  color: #f9f027;
+  font-size: 30rpx;
+  color: #666;
 }
 .section_box .box_c text {
-  font-size: 35rpx;
-  color: #1296db;
+  font-size: 30rpx;
+  color: #666;
 }
 .section_box .box_r text {
-  font-size: 35rpx;
-  color: #d81e06;
+  font-size: 30rpx;
+  color: #666;
 }
 .upload_btn {
   margin-top: 50px;
 }
 .upload_btn button {
   width: 90%;
-  background-color:#f9f027;
+  background-color:#FF6336;
 }

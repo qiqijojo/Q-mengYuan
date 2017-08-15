@@ -8,40 +8,54 @@ Page({
   data: {
     anonymity: 'qiqijojo',
     imgUrl: '../images/user.jpg',
-    wechat: '',
-    sex:1,
+    wechat: 'wq-wyue-chaoyue',
+    sex:0,
     gender:'',
     nature: '',
     expect: ''
   },
   //事件处理函数
   backIndex: function () {
+    var that = this;
     wx.request({
       url: 'http://172.18.33.2/api/user/signup',
       data:{
-        wechat:this.data.wechat,
-        gender:this.data.gender,
-        nature:this.data.nature,
-        expect:this.data.expect
+        wechat: that.data.wechat,
+        gender: that.data.gender,
+        nature: that.data.nature,
+        expect: that.data.expect
       },
       method:'POST',
       success:function(res){
-        console.log(res)
+       if(res.data.code === 0){
+         wx.showToast({
+           title: '注册成功',
+           icon:'success',
+           mask:true,
+           success:function(){
+              wx.switchTab({
+                url: '../index/index',
+              })
+           }
+         })
+       } else if (res.data.code === -1){
+         wx.showModal({
+           title: '注册失败！',
+           content: '请检查输入是否正确！',
+           showCancel:false,
+         })
+       }
       }
     })
-    // wx.switchTab({
-    //   url: '../index/index',
-      
-    // })
   },
   bindMyCharacter:function(e){
     this.setData({
-      nature:e.detail.value
+      nature: e.detail.value
     })
   },
   bindPeerCharacter:function(e){
     this.setData({
-      expect:e.detail.value
+      expect: e.detail.value
     })
   },
   /**
@@ -49,19 +63,16 @@ Page({
    */
   onLoad: function () {
     var that = this;
-    app.getUserInfo(function (wechat){
+    app.getUserInfo(function (info){
       that.setData({
-        wechat: wechat.nickName
-      },{
-        sex:wechat.gender
+          sex: info.gender
       });
-      console.log(wechat)
+       if (that.data.sex === 1){
+          that.setData({gender:'MAIL'})
+        } else if (that.data.sex === 2){
+            that.setData({gender:'FEMAIL'})
+          }
     });
-    if (that.data.sex === 1){
-      that.setData({gender:'MAIL'})
-    } else if (that.data.sex === 2){
-      that.setData({gender:'FEMAIL'})
-    }
   },
 
   /**
