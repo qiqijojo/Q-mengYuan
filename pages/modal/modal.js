@@ -69,13 +69,10 @@ Page({
       });
        if (that.data.sex === 1){
           that.setData({gender:'MAIL'})
-          console.log(that.data.gender)
         } else if (that.data.sex === 2){
             that.setData({gender:'FEMAIL'})
-            console.log(that.data.gender)
           }
     });
-   
   },
 
   /**
