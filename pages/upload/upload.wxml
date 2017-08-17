@@ -14,13 +14,43 @@
   <!-- 主体 -->
   <view class="page_panels">
     <view class="page_content" wx:if="{{tabsId == 1}}">
-      <text>笑话</text>
+      <text>笑话{{tabsId}}</text>
     </view>
     <view class="page_content" wx:if="{{tabsId == 2}}">
-      <text>照片</text>
+      <text>照片{{tabsId}}</text>
     </view>
     <view class="page_content" wx:if="{{tabsId == 3}}">
-      <text>视频</text>
+      <text>视频{{tabsId}}</text>
     </view>
-  </view> 
+  </view>
+  <view class="weui-cells weui-cells_form">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                    <p class="weui-uploader__title">图片上传</p>
+                    <view class="weui-uploader__info">只能上传一张哦</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <ul class="weui-uploader__files" id="uploaderFiles">
+                    <block wx:for="{{pics}}" wx:key="*this">
+                      <li class="weui-uploader__file" wx:if="{{isHiddenImage}}">
+                        <image src="{{item}}"></image>
+                        <view class="delete_icon" bindtap="removeImg">
+                           <image src="images/delete_icon.png"></image>  
+                        </view>
+                      </li>
+                    </block>
+                  </ul>
+                  <view class="weui-uploader__input-box" bindtap="uploadImg">
+                      <button id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple=""></button>
+                  </view>
+                </view>
+            </view>
+        </view>
+    </view>
+  </view>
+  <!-- <view class="upload_btn" bindtap="upload">
+    <button type="warn">上传</button>
+  </view>  -->
 </view>

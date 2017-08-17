@@ -1,4 +1,4 @@
-var app = getApp()
+let app = getApp()
 Page( {
   data: {
     userInfo: {},
@@ -8,25 +8,28 @@ Page( {
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    tabsId: 1
+    tabsId: 1,
+    isHiddenImage: false
   },
   tabClick: function (e){
-    const numId = Number(e.target.id)+1;
+    const numId = Number(e.currentTarget.id)+1;
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.activeIndex,
-      tabsId: numId || 1
+      tabsId: numId,
+      pics: []
     })
   },
   onLoad: function(options) {
     const that = this;
-    var sliderLeft = 0;
- 
+    /** 
+     let sliderLeft = 0;
+
     switch(options.id){
       case "1":
         sliderLeft="0%";
         break;
-      case "2": 
+      case "2":
         sliderLeft="33%";
         break;
       case "3":
@@ -34,12 +37,74 @@ Page( {
         break;
       default:
         sliderLeft=0;
-        break;   
+        break;
     };
     that.setData({
       tabsId: options.id || 1,
       sliderLeft: sliderLeft
     })
+     * **/
+  },
+  uploadImg: function (){
+    let that = this;
+    let single = "";
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: (res) => {
+        let tempFilePaths = res.tempFilePaths;
+        for(let i = 0;i<tempFilePaths.length; i++){
+          single = tempFilePaths[i];
+          that.saveImg(single);
+        }
+      }
+    })  
+  },
+  saveImg(single){
+    let arr = [];
+    let that = this;
+    wx.saveFile({
+      tempFilePath: single,
+      success: (res) => {
+        let savedFilePath = res.savedFilePath;
+        arr.push(savedFilePath);
+        that.setData({
+          pics: arr,
+          isHiddenImage: true
+        })
+      }
+    })
+  },
+  removeImg: function (){
+    let that = this;
+    wx.getSavedFileList({
+      success: function(res) {
+        if (res.fileList.length > 0){
+          wx.removeSavedFile({
+            filePath: res.fileList[0].filePath,
+            complete: function(res) {
+              console.log(res)
+              that.setData({
+                isHiddenImage: false
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
   },
   onShareAppMessage: function (){
     return {

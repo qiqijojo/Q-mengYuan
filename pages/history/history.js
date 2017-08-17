@@ -7,14 +7,14 @@ Page({
    */
   data: {
     titleId: 1, 
-    content: ""
+    item: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+    let that = this;
     wx.request({
       url: 'http://172.18.33.2/api/message/getMessageByWechatAndType', 
       data: {
@@ -28,19 +28,21 @@ Page({
           'content-type': 'application/json'
       },
       success: function(res) {
-        debugger;
         console.log(res.data,"resData");
-        if(res.code == 0){
-          that.setData({
-             content: res.data.data.forEach((item) => {
-                return Object.assign({},item.content);
-             }) 
-          })
-          console.log(content,"content");
+        let resData = res.data;
+        if(resData.code == 0){
+          if(resData.data){
+            that.setData({
+              item: resData.data 
+            })
+          }
         }
       },
       fail: function (){
-
+        console.log("接口数据获取失败");
+      },
+      complete: function (){
+        console.log("接口数据获取成功");
       }
     });
     this.setData({
