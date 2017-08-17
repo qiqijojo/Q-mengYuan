@@ -35,6 +35,38 @@ view {
   -webkit-transition:-webkit-transform .3s;
   transition:-webkit-transform .3s;
 }
-.page_panels {
-  
+.upload_btn {
+  margin-top: 50px;
+}
+.upload_btn button {
+  width: 90%;
+  background-color:#FF6336;
+}
+.weui-uploader__file {
+    float: left;
+    margin-right: 9px;
+    margin-bottom: 9px;
+    width: 79px;
+    height: 79px;
+    background: no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+.weui-uploader__file image {
+  width: 100%;
+  height: 100%;
+}
+.delete_icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+}
+.delete_icon image {
+  width: 100%;
+  height: 100%;
+}
+.weui-uploader__info {
+  font-size: 14px;
 }

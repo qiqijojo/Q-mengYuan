@@ -6,16 +6,18 @@
       <text class="page_title__movie" wx:if="{{titleId == 3}}">视频</text>
   </view>
   <view class="page_warp">
-    <view class="page_item">
-      <view class="page_item__header">
-        <text>发布于2018-1-5</text>
-      </view>
-      <view class="page_item__content">
-        <text>今天天气很好！</text>
-        <view class="page_item__delete">
-          <image src="../../images/delete1.png"></image>
-        </view>
-      </view>
-    </view>  
+	<block wx:for="{{item}}" wx:key="*this">
+		<view class="page_item">
+	      <view class="page_item__header">
+	        <text>发布于{{item.publish_time}}</text>
+	      </view>
+	      <view class="page_item__content">
+	        <text>{{item.content}}</text>
+	        <view class="page_item__delete">
+	          <image src="../../images/delete1.png"></image>
+	        </view>
+	      </view>
+	    </view> 
+    </block> 
   </view>
 </view>

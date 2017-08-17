@@ -33,7 +33,7 @@
     </view>
   </view>
   <view class="upload_btn" bindtap="jumpToUpload">
-    <button type="primary">进入上传页面</button>
+    <button type="warn">进入上传页面</button>
     </view>
   <loading hidden="{{hiddenLoading}}">加载中...</loading>
 </view>

@@ -145,5 +145,4 @@ textarea {
 }
 .upload_btn button {
   width: 90%;
-  background-color:#FF6336;
 }
