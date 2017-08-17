@@ -35,6 +35,10 @@
 	font-size: 12px;
 	color: #ccc;
 }
+.page_item__header .page_item__mid {
+  color: red important;
+  margin-left: 10px;
+}
 .page_item__content {
   	width:90%;
 	height:80px;

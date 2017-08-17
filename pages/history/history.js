@@ -7,20 +7,31 @@ Page({
    */
   data: {
     titleId: 1, 
-    item: ""
+    item: [],
+    pageIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData();
+    this.setData({
+      titleId: options.id || 1 //获取url的参数判断title的文案
+    })
+  },
+  /*
+    获取多条数据
+   */
+  getData: function (){
     let that = this;
+    console.log(this.data.pageIndex,"############");
     wx.request({
       url: 'http://172.18.33.2/api/message/getMessageByWechatAndType', 
       data: {
-        "wechat": "wangquan19921010",
+        "wechat": "wechat11",
         "type": "String",
-        "pageIndex": 0,
+        "pageIndex": this.data.pageIndex,
         "pageSize": 10
       },
       method: 'POST',
@@ -30,12 +41,17 @@ Page({
       success: function(res) {
         console.log(res.data,"resData");
         let resData = res.data;
-        if(resData.code == 0){
-          if(resData.data){
+        debugger;
+        if(resData.code == 0&&resData.data){
             that.setData({
-              item: resData.data 
+              item: that.data.item.concat(resData.data)
             })
-          }
+        }else if(resData.code == -1){
+          wx.showToast({
+            title: '到底啦，亲',
+            icon: 'success',
+            duration: 1200
+          })
         }
       },
       fail: function (){
@@ -45,11 +61,7 @@ Page({
         console.log("接口数据获取成功");
       }
     });
-    this.setData({
-      titleId: options.id || 1 //获取url的参数判断title的文案
-    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -89,7 +101,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    this.data.pageIndex++;
+    this.getData();
   },
 
   /**
