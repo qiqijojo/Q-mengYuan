@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    anonymity: 'qiqijojo',
+    anonymity: '',
     imgUrl: '../images/user.jpg',
-    wechat: 'wq-wyue-chaoyue',
+    loginCode: '',
     sex:0,
     gender:'',
     nature: '',
@@ -20,7 +20,8 @@ Page({
     wx.request({
       url: 'http://172.18.33.2/api/user/signup',
       data:{
-        wechat: that.data.wechat,
+        anonymity:'',
+        loginCode: that.data.loginCode,
         gender: that.data.gender,
         nature: that.data.nature,
         expect: that.data.expect
@@ -61,9 +62,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (query) {
     var that = this;
+    that.setData({
+      anonymity: query.userName,
+      loginCode: query.loginCode
+    });
+    console.log(that.data.userName)
+    console.log(that.data.loginCode)
     app.getUserInfo(function (info){
+      console.log(info)
       that.setData({
           sex: info.gender
       });

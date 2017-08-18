@@ -1,12 +1,14 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
 Page({
   data: {
     userImage:'../images/user.jpg',
+    userName:'',
     showData:[],
     perData:[],
     pageIndex:0,
+    openId:'',
    },
   //事件处理函数
   goPalsInfo:function(){
@@ -50,15 +52,47 @@ Page({
     });
   },
   onLoad: function () {
+    var that = this;
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
-              wx.navigateTo({
-                url: '../modal/modal',
-              })
+              that.setData({
+                userName: Math.random().toString(20).substr(2, 10)
+              });
+              console.log(that.data.userName)
+              wx.login({
+                success: function (obj) {
+                  if (obj.code) {
+                    var loginCode = obj.code;
+                    console.log(loginCode)
+                    wx.navigateTo({
+                           url: '../modal/modal?userName='+that.data.userName+'&loginCode='+loginCode,
+                        })
+                    // wx.request({
+                    //   data: {},
+                    //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx9fe2d766e02466b4&secret=746ec8739f1f75c5766cecf430d7ff98&js_code='+JSCODE+'&grant_type=authorization_code',
+                    //   method: 'GET',
+                    //   success: function (res) {
+                    //     console.log(res.data)
+                    //     that.setData({
+                    //       openId:res.data.openid
+                    //     });
+                    //     wx.navigateTo({
+                    //        url: '../modal/modal?userName='+that.data.userName,
+                    //     })
+                    //   }
+                    // })
+                  } else {
+                    console.log('获取用户登录态失败!' + res.errMsg)
+                  }
+                }
+              });
+            },
+            fail:function(){
+              console.log('用户拒绝授权！！！')
             }
           })
         }

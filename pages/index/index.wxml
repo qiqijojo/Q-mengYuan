@@ -8,7 +8,7 @@
     <view class="showbox">
       <view class="dataList"  wx:for="{{showData}}" wx:key="index">
         <image src="{{item.userImage}}"></image>
-        <text bindtap="goPalsInfo">qqqqqqqqq</text>
+        <text bindtap="goPalsInfo">{{userName}}</text>
         <view class="content">{{item.content}}</view>
         <view class="pubDate">发布于{{item.publish_time}}</view>
         <button type="primary">Q</button>
