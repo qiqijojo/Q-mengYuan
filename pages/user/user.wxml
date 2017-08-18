@@ -35,5 +35,5 @@
   <view class="upload_btn" bindtap="jumpToUpload">
     <button type="warn">进入上传页面</button>
     </view>
-  <loading hidden="{{hiddenLoading}}">加载中...</loading>
+  <!-- <loading hidden="{{hiddenLoading}}">加载中...</loading> -->
 </view>

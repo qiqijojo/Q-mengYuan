@@ -33,9 +33,9 @@
                 </view>
                 <view class="weui-uploader__bd">
                   <ul class="weui-uploader__files" id="uploaderFiles">
-                    <block wx:for="{{pics}}" wx:key="*this">
+                    <block wx:for="{{pics}}" wx:for-index="idx" wx:key="*this">
                       <li class="weui-uploader__file" wx:if="{{isHiddenImage}}">
-                        <image src="{{item}}"></image>
+                        <image src="{{item}}" bindtap="previeImg" imgUrl="{{item}}" data-id="{{idx}}"></image>
                         <view class="delete_icon" bindtap="removeImg">
                            <image src="images/delete_icon.png"></image>  
                         </view>

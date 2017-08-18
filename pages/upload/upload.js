@@ -9,7 +9,8 @@ Page( {
     sliderOffset: 0,
     sliderLeft: 0,
     tabsId: 1,
-    isHiddenImage: false
+    isHiddenImage: false,
+    imageList:[]
   },
   tabClick: function (e){
     const numId = Number(e.currentTarget.id)+1;
@@ -45,7 +46,14 @@ Page( {
     })
      * **/
   },
-  uploadImg: function (){
+  previeImg: function (e){ //预览图片
+    debugger;
+    wx.previewImage({
+      current: e.currentTarget.imgUrl, // 当前显示图片的http链接
+      urls: this.data.imageList[0] // 需要预览的图片http链接列表
+    })
+  },
+  uploadImg: function (){ //上传图片
     let that = this;
     let single = "";
     wx.chooseImage({
@@ -56,12 +64,13 @@ Page( {
         let tempFilePaths = res.tempFilePaths;
         for(let i = 0;i<tempFilePaths.length; i++){
           single = tempFilePaths[i];
+          that.data.imageList.push(tempFilePaths[i]);
           that.saveImg(single);
         }
       }
     })  
   },
-  saveImg(single){
+  saveImg: function(single){
     let arr = [];
     let that = this;
     wx.saveFile({

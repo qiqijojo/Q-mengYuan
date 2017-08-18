@@ -29,7 +29,7 @@ Page({
     wx.request({
       url: 'http://172.18.33.2/api/message/getMessageByWechatAndType', 
       data: {
-        "wechat": "wechat11",
+        "wechat": "wechat11",     
         "type": "String",
         "pageIndex": this.data.pageIndex,
         "pageSize": 10
@@ -41,7 +41,6 @@ Page({
       success: function(res) {
         console.log(res.data,"resData");
         let resData = res.data;
-        debugger;
         if(resData.code == 0&&resData.data){
             that.setData({
               item: that.data.item.concat(resData.data)
@@ -109,6 +108,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title:'Q萌缘分享测试',
+      desc:'最具人气的交友平台',
+      path:'pages/history/history',
+      success:function(res){
+        console.log('转发成功')
+      },
+      fail:function(res){
+        console.log('转发失败')
+      }
+    }
   }
 })
