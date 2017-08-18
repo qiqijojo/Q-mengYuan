@@ -1,9 +1,10 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
 Page({
   data: {
     userImage:'../images/user.jpg',
+    userName:'',
     showData:[],
     perData:[],
     pageIndex:0,
@@ -58,32 +59,40 @@ Page({
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
+              that.setData({
+                userName: Math.random().toString(20).substr(2, 10)
+              });
+              console.log(that.data.userName)
               wx.login({
                 success: function (obj) {
                   if (obj.code) {
-                    var JSCODE = obj.code;
-                    wx.request({
-                      data: {},
-                      url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx9fe2d766e02466b4&secret=746ec8739f1f75c5766cecf430d7ff98&js_code='+JSCODE+'&grant_type=authorization_code',
-                      method: 'GET',
-                      success: function (res) {
-                        console.log(res.data)
-                        that.setData({
-                          openId:res.data.openid
+                    var loginCode = obj.code;
+                    console.log(loginCode)
+                    wx.navigateTo({
+                           url: '../modal/modal?userName='+that.data.userName+'&loginCode='+loginCode,
                         })
-                      }
-                    })
+                    // wx.request({
+                    //   data: {},
+                    //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx9fe2d766e02466b4&secret=746ec8739f1f75c5766cecf430d7ff98&js_code='+JSCODE+'&grant_type=authorization_code',
+                    //   method: 'GET',
+                    //   success: function (res) {
+                    //     console.log(res.data)
+                    //     that.setData({
+                    //       openId:res.data.openid
+                    //     });
+                    //     wx.navigateTo({
+                    //        url: '../modal/modal?userName='+that.data.userName,
+                    //     })
+                    //   }
+                    // })
                   } else {
                     console.log('获取用户登录态失败!' + res.errMsg)
                   }
                 }
               });
-              // wx.navigateTo({
-              //   url: '../modal/modal',
-              // })
             },
             fail:function(){
-              console.log('1111111111111111111111')
+              console.log('用户拒绝授权！！！')
             }
           })
         }
