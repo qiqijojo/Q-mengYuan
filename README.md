@@ -12,7 +12,13 @@
 
 
 ####阶段二<br/>
-[蒙层](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/11.png)
-[首页](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/22.png)
-[萌友](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/33.png)
+[蒙层](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/11.png)<br/>
+![](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/110.jpg)
+
+[首页](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/22.png)<br/>
+![](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/220.jpg)
+
+[萌友](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/33.png)<br/>
+![](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/330.jpg)
+
 [聊天页面](https://github.com/qiqijojo/Q-mengYuan/raw/master/readmeImage/44.png)
