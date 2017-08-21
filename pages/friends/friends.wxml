@@ -1,11 +1,27 @@
-<!--pages/pals/pal.wxml-->
-<view class="pals">
-  <view class="tip1">
-  <text>这里显示我的萌友列表</text>
-</view>
-<view class="tip2">
-  <text>若暂时没有萌友就显示”您还没有找到萌友哦“</text>
-</view>
+<!--萌友页面-->
+<view class="page_fd">
+  <view class="page_fd_warps">
+    <block wx:for="{{userInfo}}" wx:key="*this">
+      <view class="page_item">
+        <view class="page_item__header">
+          <text>{{item.publishTime}}</text>
+          <text class="page_item__mid"></text>
+        </view>
+        <view class="page_item__content">
+          <view class="page_item__user">
+            <view class="page_item__userImg" style="background: url({{item.userImgs}})  no-repeat center top; background-size: 50px 50px;">
+            </view>
+          </view>
+          <view class="page_item__article">
+            <text>{{item.charactDesc}}</text>
+          </view>
+          <view class="page_item__delete" data-id="{{index}}" bindtap="deleteItem">
+            <image src="../../images/delete1.png"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
 </view>
 
 

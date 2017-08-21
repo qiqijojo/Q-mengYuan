@@ -152,10 +152,13 @@ textarea {
   align-items: center;
 }
 .weui-cell__bd {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  flex:1;
   text-align:left;
+  background:url(../../images/setting.png) no-repeat left top;
+  padding-left:30px;
+  background-size:25px 25px;
 }
 .weui-cells_form .weui-cell__ft {
     font-size: 0;

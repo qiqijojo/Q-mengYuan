@@ -10,7 +10,7 @@
 		<view class="page_item">
 	      <view class="page_item__header">
 	        <text>发布于{{item.publish_time}}</text>
-	        <text>{{item.mid}}</text>
+	        <text class="page_item__mid">{{item.mid}}</text>
 	      </view>
 	      <view class="page_item__content">
 	        <text>{{item.content}}</text>

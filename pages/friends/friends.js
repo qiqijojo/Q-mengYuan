@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: [
+        { userImgs: "../../images/headImg1.jpg",publishTime: "2017-8-21 10:00",charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。"},
+        { userImgs: "../../images/headImg2.jpg",publishTime: "2017-8-21 10:00",charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。"},
+        { userImgs: "../../images/headImg3.jpg",publishTime: "2017-8-21 10:00",charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。"},
+        { userImgs: "../../images/headImg4.jpg",publishTime: "2017-8-21 10:00",charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。"},
+        { userImgs: "../../images/headImg5.jpg",publishTime: "2017-8-21 10:00",charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。"},
+        { userImgs: "../../images/headImg6.jpg",publishTime: "2017-8-21 10:00",charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。"}
+    ]
   },
 
   /**
@@ -62,5 +69,17 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  deleteItem: function (e){
+    debugger;
+    let id = e.currentTarget.dataset.id;
+    console.log(id,"#######");
+    if(this.data.userInfo.length){
+      let userData = this.data.userInfo;
+        userData.splice(id,1)
+      this.setData({
+        userInfo: userData
+      })
+    }
   }
-})
+});
