@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a76ae2a5-8725-4c86-a55d-dab3b78cd7b2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/history/history.js" afterPath="$PROJECT_DIR$/pages/history/history.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/history/history.wxss" afterPath="$PROJECT_DIR$/pages/history/history.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/upload/upload.js" afterPath="$PROJECT_DIR$/pages/upload/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/upload/upload.wxml" afterPath="$PROJECT_DIR$/pages/upload/upload.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/user/user.js" afterPath="$PROJECT_DIR$/pages/user/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/user/user.wxml" afterPath="$PROJECT_DIR$/pages/user/user.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -86,6 +79,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pages/history/history.wxss" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -247,15 +241,15 @@
       <updated>1502678091201</updated>
       <workItem from="1502678092489" duration="59000" />
       <workItem from="1502954402145" duration="462000" />
-      <workItem from="1503039840195" duration="35000" />
+      <workItem from="1503039840195" duration="604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="556000" />
+    <option name="totallyTimeSpent" value="1125000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

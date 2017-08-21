@@ -10,7 +10,7 @@
     "pages/history/history"
   ],
   "window": {
-    "enablePullDownRefresh": false,
+    "enablePullDownRefresh": true,
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Q萌缘",

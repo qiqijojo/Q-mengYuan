@@ -47,7 +47,6 @@ Page( {
      * **/
   },
   previeImg: function (e){ //预览图片
-    debugger;
     wx.previewImage({
       current: e.currentTarget.imgUrl, // 当前显示图片的http链接
       urls: this.data.imageList[0] // 需要预览的图片http链接列表
