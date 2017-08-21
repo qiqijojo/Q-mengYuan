@@ -3,8 +3,8 @@
 let app = getApp();
 Page({
   data: {
-    userImage:'../images/user.jpg',
-    userName:'',
+    userImage:'',
+    nickName:'',
     showData:[],
     perData:[],
     pageIndex:0,
@@ -16,53 +16,57 @@ Page({
       url: '../palInfo/palInfo',
     })
   },
-  getAllItems:function(){
-    let that = this;
-    wx.request({
-      url: 'http://172.18.33.2/api/message/getMessages',
-      data: {
-        pageIndex:this.data.pageIndex,
-        pageSize:10
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        if(res.data.code === 0){
-          that.setData({
-            perData: res.data.data.map((item) => {
-            return Object.assign(item,{ 'userImage': that.data.userImage });
-            })
-          });
-          if(that.data.perData.length>0){
-              that.setData({
-                showData: that.data.showData.concat(that.data.perData)
-              })
-          }
-        } else if (res.data.code === -1) {
-            that.setData({
-              perData: []
-            })
-        }
-      },      
-      fail:function(err){
-         console.log(err)       
-      }
-    });
-  },
+  // getAllItems:function(){
+  //   let that = this;
+  //   wx.request({
+  //     url: 'http://172.18.33.2/api/message/getMessages',
+  //     data: {
+  //       pageIndex:this.data.pageIndex,
+  //       pageSize:10
+  //     },
+  //     method: 'POST',
+  //     header: {
+  //       'content-type': 'application/json'
+  //     },
+  //     success: function (res) {
+  //       if(res.data.code === 0){
+  //         that.setData({
+  //           perData: res.data.data.map((item) => {
+  //           return Object.assign(item,{ 'userImage': that.data.userImage });
+  //           })
+  //         });
+  //         if(that.data.perData.length>0){
+  //             that.setData({
+  //               showData: that.data.showData.concat(that.data.perData)
+  //             })
+  //         }
+  //       } else if (res.data.code === -1) {
+  //           that.setData({
+  //             perData: []
+  //           })
+  //       }
+  //     },      
+  //     fail:function(err){
+  //        console.log(err)       
+  //     }
+  //   });
+  // },
   onLoad: function () {
-    let that = this;
+    var that = this;
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
-              that.setData({
-                userName: Math.random().toString(20).substr(2, 10)
-              });
-              console.log(that.data.userName)
+              wx.getUserInfo({
+                success:function(res){
+                  console.log(res)
+                  that.setData({
+                    nickName: res.userInfo.nickName
+                  });
+                }
+              })
               wx.login({
                 success: function (obj) {
                   if (obj.code) {
@@ -80,9 +84,9 @@ Page({
                     //     that.setData({
                     //       openId:res.data.openid
                     //     });
-                    //     wx.navigateTo({
-                    //        url: '../modal/modal?userName='+that.data.userName,
-                    //     })
+                    //     // wx.navigateTo({
+                    //     //    url: '../modal/modal?userName='+that.data.userName,
+                    //     // })
                     //   }
                     // })
                   } else {
@@ -98,7 +102,7 @@ Page({
         }
       }
     })
-    this.getAllItems();
+    // this.getAllItems();
   },
   onReady: function(){
     
@@ -106,24 +110,24 @@ Page({
   onShow: function(){
      
   },
-  onReachBottom: function(){
-    if (this.data.perData.length === 0){
-      wx.showToast({
-        title: '没有数据了！',
-        mask: true,
-        duration: 2000,
-        success:function(res){
-          console.log(res)
-        },
-        fail:function(res){
-          console.log(res)
-        }
-      })
-    }else{
-      this.setData({ pageIndex: this.data.pageIndex + 1 });
-      this.getAllItems();
-    }
-  },
+  // onReachBottom: function(){
+  //   if (this.data.perData.length === 0){
+  //     wx.showToast({
+  //       title: '没有数据了！',
+  //       mask: true,
+  //       duration: 2000,
+  //       success:function(res){
+  //         console.log(res)
+  //       },
+  //       fail:function(res){
+  //         console.log(res)
+  //       }
+  //     })
+  //   }else{
+  //     this.setData({ pageIndex: this.data.pageIndex + 1 });
+  //     this.getAllItems();
+  //   }
+  // },
   onShareAppMessage:function(res){
     return {
       title:'Q萌缘分享测试',

@@ -3,14 +3,14 @@
   <view class="indexImage">
     <image src="../images/indexImg.jpg"></image>
   </view>
-  <view class="hotText">热门</view>
+  <view class="hotText">兴趣相投</view>
  
     <view class="showbox">
-      <view class="dataList"  wx:for="{{showData}}" wx:key="index">
-        <image src="{{item.userImage}}"></image>
-        <text bindtap="goPalsInfo">{{userName}}</text>
-        <view class="content">{{item.content}}</view>
-        <view class="pubDate">发布于{{item.publish_time}}</view>
+      <view class="dataList">
+        <image src="../images/user.jpg"></image>
+        <text bindtap="goPalsInfo">qqqq</text>
+        <view class="content">我的性格是大众性格，兴趣广泛，游泳、跳舞、唱歌样样擅长。</view>
+        <view class="pubDate">-> 此人是您的朋友</view>
         <button type="primary">Q</button>
       </view>
     </view>

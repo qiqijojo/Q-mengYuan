@@ -5,7 +5,7 @@
 }
 .indexImage image{
   width:inherit;
-  height: 200px; 
+  height: 150px; 
 }
 .hotText{
   margin:20px auto;
