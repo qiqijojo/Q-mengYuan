@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-var app = getApp();
+let app = getApp();
 Page({
   data: {
     userImage:'../images/user.jpg',
@@ -17,7 +17,7 @@ Page({
     })
   },
   getAllItems:function(){
-    var that = this;
+    let that = this;
     wx.request({
       url: 'http://172.18.33.2/api/message/getMessages',
       data: {
@@ -52,7 +52,7 @@ Page({
     });
   },
   onLoad: function () {
-    var that = this;
+    let that = this;
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
@@ -66,12 +66,12 @@ Page({
               wx.login({
                 success: function (obj) {
                   if (obj.code) {
-                    var loginCode = obj.code;
+                    let loginCode = obj.code;
                     console.log(loginCode)
                     wx.navigateTo({
                            url: '../modal/modal?userName='+that.data.userName+'&loginCode='+loginCode,
                         })
-                    // wx.request({
+                    // wx.request({ //获取openid
                     //   data: {},
                     //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx9fe2d766e02466b4&secret=746ec8739f1f75c5766cecf430d7ff98&js_code='+JSCODE+'&grant_type=authorization_code',
                     //   method: 'GET',
