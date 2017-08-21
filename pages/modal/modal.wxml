@@ -2,20 +2,24 @@
 <view class="container">
   <view class="modal">
     <text>
-      以下是您的Q萌缘信息
+      请完成您的兴趣标签
     </text>
-    <view class="info">
-      <view>
-        <image src="{{imgUrl}}" mode="aspectFit"></image>
+    <view class="label">
+      <view class="choice-label">
+        <button size="mini" type="default">标签一</button>
+        <button size="mini" type="default">标签二</button>
+        <button size="mini" type="default">标签三</button>
+        <button size="mini" type="default">标签四</button>
+        <button size="mini" type="default">标签五</button> 
+        <button size="mini" type="default">+</button>      
       </view>
-      <view>
-        <text>Q昵称：{{anonymity}}</text>
+      <view class="definition-label">
+        <text>自定义兴趣标签：</text>
+        <textarea maxlength="140" placeholder="请填写自定义兴趣标签" />
       </view>
     </view>
-    <view class="fillCharacter">
-      <input type="text" name="myCharacter" placeholder="请简单填写您的性格" />
-      <input type="text" name="peerCharacter" placeholder="请填写期望萌友的性格" />
-    </view>
-      <button size="mini" plain="true" bindtap="backIndex">确认</button>
+    <view class="submit-label">
+      <button size="mini" type="primary">确定</button>
+    </view>      
   </view>
 </view>

@@ -1,34 +1,29 @@
-/* pages/modal/modal.wxss */
 .modal{
   width:inherit;
-  height:inherit;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  padding-top: 60px;
-  z-index:10;
-  /* background: rgba(9, 9, 9, 0.3);     */
-  background-image: linear-gradient(-180deg,#3c3c3c 12%,rgba(28,28,32,0.5) 100%);         
+  text-align: center;
 }
-.info{
-  margin: 30px 0px;
-}
-.info image{
-  width:100px;
-  height:100px;
-  border-radius: 50%;
-  opacity: 0.5;
-} 
-.fillCharacter{
+.label{
   width: inherit;
-  margin-top: 30px;
+  margin:20px auto;
 }
-.fillCharacter input{
-  margin:30px auto;
+.label .choice-label{
+  border: 1px solid #ccc;
+  width: inherit;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.choice-label button{
+   margin-right: 10px; 
+}
+.definition-label{
+  width: 80%;
+  margin:20px auto;
   text-align: left;
-  width:70%;
-  border-bottom: 1px solid #333;
 }
-button{
-  margin-top: 10px;
+.definition-label textarea{
+  width:100%;
+  border: 1px solid #ccc;
+  margin-top: 10px;  
 }
