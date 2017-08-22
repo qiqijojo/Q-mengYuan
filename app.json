@@ -2,13 +2,13 @@
   "pages":[
      "pages/index/index",
     "pages/modal/modal",
-   
     "pages/friends/friends",
     "pages/user/user",
     "pages/logs/logs",
     "pages/palInfo/palInfo",
     "pages/upload/upload",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/custom/custom"
   ],
   "window": {
     "enablePullDownRefresh": true,

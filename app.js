@@ -23,6 +23,9 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    label: [],
+    labelCount: [],
+    customInput: ""
   }
 })

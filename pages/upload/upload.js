@@ -92,7 +92,7 @@ Page( {
           wx.removeSavedFile({
             filePath: res.fileList[0].filePath,
             complete: function(res) {
-              console.log(res)
+              console.log(res);
               that.setData({
                 isHiddenImage: false
               })

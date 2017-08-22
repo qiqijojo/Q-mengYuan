@@ -1,0 +1,4 @@
+.page_custom .form_btn {
+  width: 90%;
+  margin: 0 auto;
+}

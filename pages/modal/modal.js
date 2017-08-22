@@ -12,7 +12,19 @@ Page({
     sex:0,
     gender:'',
     nature: '',
-    expect: ''
+    expect: '',
+    modalHidden: true,
+    nocancel:false,
+    selfLabel: [
+        {label: "标签一"},
+        {label: "标签二"},
+        {label: "标签三"},
+        {label: "标签四"},
+        {label: "标签五"}
+    ],
+    labelWarp: [],
+    labelArr: [],
+    lightColor: "" //颜色高亮
   },
   //事件处理函数
   // backIndex: function () {
@@ -94,7 +106,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      if(app.globalData.customInput){
+          app.globalData.label.push({label: app.globalData.customInput});
+          this.setData({
+              labelWarp: app.globalData.label
+          })
+      }
   },
 
   /**
@@ -130,5 +147,65 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  //添加标签
+  addLabel: function (e){
+      if(this.data.selfLabel.length){
+          let labelIndex = e.currentTarget.dataset.index;
+          if(app.globalData.labelCount.length>0){
+              if(!app.globalData.labelCount.includes(labelIndex)){  //判断全局globalData对象里面的labelCount数组里面是否包含labelIndex，为了避免让同一种标签重复被选择，如果没有则存储，如果有则return终止;
+                  this.filterLabel(labelIndex);
+              }else {
+                 return false;
+              }
+          }else {
+              this.filterLabel(labelIndex);
+          }
+      }
+  },
+  filterLabel: function (index){
+      //该方法是将选中的标签的数据存放起来，在自定义标签下面的输入框中展示；
+      let selfLabel = this.data.selfLabel;
+      for( let i =0;i<selfLabel.length;i++){
+          if(i == index){
+              selfLabel[index]["flag"] = index;
+              app.globalData.label.push(selfLabel[index]);
+              app.globalData.labelCount.push(index);
+              selfLabel[i].lightColor = "#1AAD19";
+          }
+      }
+      this.setData({
+          labelWarp: app.globalData.label,
+          selfLabel: selfLabel
+      })
+  },
+  //删除标签
+  deleteLabel: function (e){
+      debugger;
+      let index = e.currentTarget.dataset.index;
+      let flag = e.currentTarget.dataset.flag;
+      let labelWarp = this.data.labelWarp;
+      let selfLabel = this.data.selfLabel;
+
+      if(labelWarp.length>0){
+          labelWarp.splice(index,1);
+          app.globalData.label.splice(index,1);
+          app.globalData.labelCount.splice(index,1);
+          selfLabel.map((ele,k) => {
+              if(k == flag){
+                  ele.lightColor = "#F8F8F8";
+              }
+          });
+          this.setData({
+              labelWarp: labelWarp,
+              selfLabel: selfLabel
+          })
+      }
+  },
+  //添加自定义标签
+  addInterest: function (){
+      wx.navigateTo({
+          url: '../custom/custom'
+      })
   }
-})
+});

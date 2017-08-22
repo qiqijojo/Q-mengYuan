@@ -71,12 +71,10 @@ Page({
   
   },
   deleteItem: function (e){
-    debugger;
     let id = e.currentTarget.dataset.id;
-    console.log(id,"#######");
     if(this.data.userInfo.length){
       let userData = this.data.userInfo;
-        userData.splice(id,1)
+        userData.splice(id,1);
       this.setData({
         userInfo: userData
       })

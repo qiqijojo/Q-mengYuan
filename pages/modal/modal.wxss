@@ -18,12 +18,35 @@
    margin-right: 10px; 
 }
 .definition-label{
-  width: 80%;
+  width: 90%;
   margin:20px auto;
   text-align: left;
+}
+/* 按钮点击样式 */
+.button-hover {
+  background: blue;
+  color: blue;
+}
+.label-warp {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.label-item {
+  position: relative;
+  display: inline-block;
+  padding: 5px 5px;
 }
 .definition-label textarea{
   width:100%;
   border: 1px solid #ccc;
   margin-top: 10px;  
+}
+.delete-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
 }

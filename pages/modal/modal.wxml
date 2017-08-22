@@ -5,21 +5,33 @@
       请完成您的兴趣标签
     </text>
     <view class="label">
-      <view class="choice-label">
-        <button size="mini" type="default">标签一</button>
-        <button size="mini" type="default">标签二</button>
-        <button size="mini" type="default">标签三</button>
-        <button size="mini" type="default">标签四</button>
-        <button size="mini" type="default">标签五</button> 
-        <button size="mini" type="default">+</button>      
-      </view>
+        <view class="choice-label">
+          <block wx:for="{{selfLabel}}" wx:key="*this">
+            <button size="mini" type="default" data-index="{{index}}" hover-class="button-hover" bindtap="addLabel" style="background:{{item.lightColor}}">{{item.label}}</button>
+          </block>
+          <button size="mini" type="default" bindtap="addInterest">+</button>
+        </view>
       <view class="definition-label">
         <text>自定义兴趣标签：</text>
-        <textarea maxlength="140" placeholder="请填写自定义兴趣标签" />
+        <view class="label-warp">
+          <block wx:for="{{labelWarp}}" wx:for-item="itemLabel" wx:key="*this" wx:for-index="idx">
+            <view class="label-item">
+              <button size="mini" type="default" style="text-overflow:ellipsis;white-space:nowrap;max-width:150px;">{{itemLabel.label}}</button>
+              <image class="delete-icon" src="../../images/delete_icon.png" bindtap="deleteLabel" data-index="{{idx}}" data-flag="{{itemLabel.flag}}"></image>
+            </view>
+          </block>
+        </view>
       </view>
     </view>
     <view class="submit-label">
       <button size="mini" type="primary">确定</button>
-    </view>      
+    </view>
+<!--    &lt;!&ndash; 小程序弹框 &ndash;&gt;
+    <modal hidden="{{modalHidden}}" title="自定义标签">
+      <form bindsumbit="formSubmit">
+        <textarea type="text" placeholder="请输入你的兴趣爱好" auto-focus />
+        <button formType="submit">提交</button>
+      </form>
+    </modal>-->
   </view>
 </view>
