@@ -106,11 +106,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      if(app.globalData.customInput){
-          app.globalData.label.push({label: app.globalData.customInput});
-          this.setData({
-              labelWarp: app.globalData.label
-          })
+      debugger;
+      let that = this;
+      let labelArr = [];
+      if(app.globalData.customInput) {
+          if (app.globalData.labelWarp.length > 0) {
+              // app.globalData.labelWarp.forEach((ele) => {
+              //     if(ele.label){
+              //         labelArr.push(ele.label);
+              //     }
+              // });
+              let hasLabel = app.globalData.labelWarp.some(val => {
+                  return val.label == app.globalData.customInput
+              });
+              if (!hasLabel) {
+                  app.globalData.labelWarp.push({label: app.globalData.customInput});
+                  that.setData({
+                      labelWarp: app.globalData.labelWarp
+                  })
+              }
+
+
+          } else {
+              app.globalData.labelWarp.push({label: app.globalData.customInput});
+              that.setData({
+                  labelWarp: app.globalData.labelWarp
+              });
+          }
       }
   },
 
@@ -169,19 +191,18 @@ Page({
       for( let i =0;i<selfLabel.length;i++){
           if(i == index){
               selfLabel[index]["flag"] = index;
-              app.globalData.label.push(selfLabel[index]);
+              app.globalData.labelWarp.push(selfLabel[index]);
               app.globalData.labelCount.push(index);
               selfLabel[i].lightColor = "#1AAD19";
           }
       }
       this.setData({
-          labelWarp: app.globalData.label,
+          labelWarp: app.globalData.labelWarp,
           selfLabel: selfLabel
       })
   },
   //删除标签
   deleteLabel: function (e){
-      debugger;
       let index = e.currentTarget.dataset.index;
       let flag = e.currentTarget.dataset.flag;
       let labelWarp = this.data.labelWarp;
@@ -189,7 +210,7 @@ Page({
 
       if(labelWarp.length>0){
           labelWarp.splice(index,1);
-          app.globalData.label.splice(index,1);
+          app.globalData.labelWarp.splice(index,1);
           app.globalData.labelCount.splice(index,1);
           selfLabel.map((ele,k) => {
               if(k == flag){

@@ -24,7 +24,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    label: [],
+    labelWarp: [],
     labelCount: [],
     customInput: ""
   }

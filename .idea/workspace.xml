@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a76ae2a5-8725-4c86-a55d-dab3b78cd7b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/delete_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/custom/custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/custom/custom.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/custom/custom.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/custom/custom.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/friends/friends.js" afterPath="$PROJECT_DIR$/pages/friends/friends.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/modal/modal.js" afterPath="$PROJECT_DIR$/pages/modal/modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/modal/modal.wxml" afterPath="$PROJECT_DIR$/pages/modal/modal.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/modal/modal.wxss" afterPath="$PROJECT_DIR$/pages/modal/modal.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/upload/upload.js" afterPath="$PROJECT_DIR$/pages/upload/upload.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,8 +45,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="15" />
+            <state relative-caret-position="501">
+              <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -88,8 +77,8 @@
       <file leaf-file-name="modal.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/modal/modal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="193" column="36" lean-forward="true" selection-start-line="193" selection-start-column="36" selection-end-line="193" selection-end-column="36" />
+            <state relative-caret-position="184">
+              <caret line="205" column="0" lean-forward="false" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,6 +150,7 @@
       <find>labelWarp</find>
       <find>label-warp</find>
       <find>app.globalData.labelCount</find>
+      <find>app.globalData.label</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,12 +167,12 @@
         <option value="$PROJECT_DIR$/pages/custom/custom.json" />
         <option value="$PROJECT_DIR$/pages/custom/custom.wxss" />
         <option value="$PROJECT_DIR$/pages/custom/custom.wxml" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/pages/modal/modal.wxss" />
         <option value="$PROJECT_DIR$/pages/upload/upload.js" />
         <option value="$PROJECT_DIR$/pages/friends/friends.js" />
         <option value="$PROJECT_DIR$/pages/custom/custom.js" />
         <option value="$PROJECT_DIR$/pages/modal/modal.wxml" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/pages/modal/modal.js" />
       </list>
     </option>
@@ -496,7 +486,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37019000" />
+    <option name="totallyTimeSpent" value="39417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -619,7 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -649,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -749,7 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -757,7 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="3" column="52" lean-forward="false" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,14 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="94" column="31" lean-forward="false" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -894,10 +869,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/modal/modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="193" column="36" lean-forward="true" selection-start-line="193" selection-start-column="36" selection-end-line="193" selection-end-column="36" />
+        <state relative-caret-position="184">
+          <caret line="205" column="0" lean-forward="false" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
           <folding />
         </state>
       </provider>
