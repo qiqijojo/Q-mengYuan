@@ -16,11 +16,11 @@ Page({
     modalHidden: true,
     nocancel:false,
     selfLabel: [
-        {label: "标签一"},
-        {label: "标签二"},
-        {label: "标签三"},
-        {label: "标签四"},
-        {label: "标签五"}
+        {label: "看小说"},
+        {label: "看电影"},
+        {label: "打游戏"},
+        {label: "写代码"},
+        {label: "种花"}
     ],
     labelWarp: [],
     labelArr: [],
@@ -106,16 +106,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      debugger;
       let that = this;
       let labelArr = [];
       if(app.globalData.customInput) {
           if (app.globalData.labelWarp.length > 0) {
-              // app.globalData.labelWarp.forEach((ele) => {
-              //     if(ele.label){
-              //         labelArr.push(ele.label);
-              //     }
-              // });
               let hasLabel = app.globalData.labelWarp.some(val => {
                   return val.label == app.globalData.customInput
               });
@@ -125,8 +119,6 @@ Page({
                       labelWarp: app.globalData.labelWarp
                   })
               }
-
-
           } else {
               app.globalData.labelWarp.push({label: app.globalData.customInput});
               that.setData({
