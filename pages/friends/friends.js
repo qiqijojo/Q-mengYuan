@@ -71,13 +71,30 @@ Page({
   
   },
   deleteItem: function (e){
-    let id = e.currentTarget.dataset.id;
-    if(this.data.userInfo.length){
-      let userData = this.data.userInfo;
-        userData.splice(id,1);
-      this.setData({
-        userInfo: userData
-      })
-    }
+    var that = this;
+    wx.showModal({
+      title: '',
+      content: '确定要删除此萌友及其聊天内容吗？',
+      success:(res)=>{
+        if(res.confirm){
+          let id = e.currentTarget.dataset.id;
+          if (that.data.userInfo.length){
+            let userData = that.data.userInfo;
+            userData.splice(id,1);
+            that.setData({
+              userInfo: userData
+            })
+          }
+          wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            mask: true,
+          })
+        }else if(res.cancel){
+          return ;
+        }
+      }
+    })
+    
   }
 });
