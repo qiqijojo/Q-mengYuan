@@ -6,13 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    anonymity: '',
     imgUrl: '../images/user.jpg',
     loginCode: '',
-    sex:0,
     gender:'',
-    nature: '',
-    expect: '',
     modalHidden: true,
     nocancel:false,
     selfLabel: [
@@ -226,6 +222,7 @@ Page({
   },
   //完成兴趣标签，提交标签
   submitLabel: function(){
+    console.log(app.globalData.labelWarp)
     var that = this;
     wx.request({
       url:'http://172.18.33.2/api/user/update',
@@ -238,7 +235,7 @@ Page({
         province: app.globalData.userInfo.province,
         country: app.globalData.userInfo.country,
         avatar: app.globalData.userInfo.avatarUrl,
-        tag: app.globalData.userInfo.labelWrap
+        tag: app.globalData.labelWarp
       },
       method: 'POST',
       success:(res=>{

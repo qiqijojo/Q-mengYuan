@@ -23,6 +23,7 @@ App({
     }
   },
   globalData: {
+    userId: '',
     userInfo: {},
     labelWarp: [],
     labelCount: [],
