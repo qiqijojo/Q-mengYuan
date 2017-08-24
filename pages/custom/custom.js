@@ -91,7 +91,7 @@ Page({
                     content: '输入内容超过15字，请重新输入~~'
                 });
             }else{
-                app.globalData.customInput = text;
+                app.globalData.customInput = text.trim();
                 wx.navigateBack({
                     url: '../modal/modal'
                 })

@@ -18,6 +18,7 @@ Page({
         {label: "写代码"},
         {label: "种花"}
     ],
+    allLabel:[],
     labelWarp: [],
     labelArr: [],
     lightColor: "" //颜色高亮
@@ -224,6 +225,15 @@ Page({
   submitLabel: function(){
     console.log(app.globalData.labelWarp)
     var that = this;
+    if(app.globalData.labelWarp){
+      let label = [];
+      app.globalData.labelWarp.map((item)=>{
+        return label.push(item.label)
+      });
+      that.setData({
+        allLabel: label
+      })
+    }
     wx.request({
       url:'http://172.18.33.2/api/user/update',
       data:{
@@ -235,7 +245,7 @@ Page({
         province: app.globalData.userInfo.province,
         country: app.globalData.userInfo.country,
         avatar: app.globalData.userInfo.avatarUrl,
-        tag: app.globalData.labelWarp
+        tag: that.data.allLabel
       },
       method: 'POST',
       success:(res=>{
