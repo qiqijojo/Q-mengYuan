@@ -24,7 +24,7 @@
       </view>
     </view>
     <view class="submit-label">
-      <button size="mini" type="primary">确定</button>
+      <button size="mini" type="primary" bindtap="submitLabel">确定</button>
     </view>
 <!--    &lt;!&ndash; 小程序弹框 &ndash;&gt;
     <modal hidden="{{modalHidden}}" title="自定义标签">

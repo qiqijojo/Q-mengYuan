@@ -27,6 +27,7 @@ Page({
     lightColor: "" //颜色高亮
   },
   //事件处理函数
+
   // backIndex: function () {
   //   var that = this;
   //   wx.request({
@@ -75,6 +76,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (query) {
+    if (app.globalData.userInfo.gender === 1) {
+      this.setData({ gender: 'MAIL' })
+    } else if (app.globalData.userInfo.gender === 2) {
+      this.setData({ gender: 'FEMAIL' })
+    }
+
     // var that = this;
     // that.setData({
     //   anonymity: query.userName,
@@ -87,11 +94,7 @@ Page({
     //   that.setData({
     //       sex: info.gender
     //   });
-    //    if (that.data.sex === 1){
-    //       that.setData({gender:'MAIL'})
-    //     } else if (that.data.sex === 2){
-    //         that.setData({gender:'FEMAIL'})
-    //       }
+       
     // });
   },
 
@@ -220,5 +223,30 @@ Page({
       wx.navigateTo({
           url: '../custom/custom'
       })
+  },
+  //完成兴趣标签，提交标签
+  submitLabel: function(){
+    var that = this;
+    wx.request({
+      url:'http://172.18.33.2/api/user/update',
+      data:{
+        userId: app.globalData.userId,
+        nick: app.globalData.userInfo.nickName,
+        gender: that.data.gender,
+        language: app.globalData.userInfo.language,
+        city: app.globalData.userInfo.city,
+        province: app.globalData.userInfo.province,
+        country: app.globalData.userInfo.country,
+        avatar: app.globalData.userInfo.avatarUrl,
+        tag: app.globalData.userInfo.labelWrap
+      },
+      method: 'POST',
+      success:(res=>{
+        console.log(res)
+      }),
+      fail: (err=>{
+        console.log(err.message)
+      })
+    })
   }
 });

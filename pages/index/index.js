@@ -41,7 +41,7 @@ Page({
                           method:'POST',
                           success:(res)=>{
                             app.globalData.sessionId = res.data.data.sessionId;
-                            console.log(app.globalData.sessionId)
+                            app.globalData.userId = res.data.data.userId;
                             wx.setStorage({
                               key: 'sessionId',
                               data: res.data.data.sessionId,
