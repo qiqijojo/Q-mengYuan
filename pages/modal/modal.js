@@ -223,7 +223,6 @@ Page({
   },
   //完成兴趣标签，提交标签
   submitLabel: function(){
-    console.log(app.globalData.labelWarp)
     var that = this;
     if(app.globalData.labelWarp){
       let label = [];
