@@ -27,6 +27,7 @@ App({
     userInfo: {},
     labelWarp: [],
     labelCount: [],
-    customInput: ""
+    customInput: "",
+    mengyuanIp:'http://172.19.25.7/',
   }
 })

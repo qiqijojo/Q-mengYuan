@@ -234,7 +234,7 @@ Page({
       })
     }
     wx.request({
-      url:'http://172.18.33.2/api/user/update',
+      url: app.globalData.mengyuanIp + 'api/user/update',
       data:{
         userId: app.globalData.userId,
         nick: app.globalData.userInfo.nickName,

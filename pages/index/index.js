@@ -72,7 +72,22 @@ Page({
     
   },
   onShow: function(){
-     
+    console.log(app.globalData.userId)
+    var self = this;
+    //  wx.request({
+    //    url: 'http://172.19.25.7/api/user/recommend',
+    //    data:{
+    //      userId:app.globalData.userId,
+    //   },
+    //      method:'POST',
+    //      success:(res)=>{
+    //        console.log(res.data);
+    //      },
+    //      fail: (err) => {
+    //        console.log(err.data);
+    //      }
+      
+    //  })
   },
   // onReachBottom: function(){
   //   if (this.data.perData.length === 0){
