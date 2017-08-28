@@ -5,12 +5,12 @@
   </view>
   <view class="hotText">兴趣相投</view>
  
-    <view class="showbox">
+    <view class="showbox" wx:for="users" wx:key="this">
       <view class="dataList">
-        <image src="../images/user.jpg"></image>
-        <text bindtap="goPalsInfo">qqqq</text>
-        <text>女</text>
-        <view class="content">我的性格是大众性格，兴趣广泛，游泳、跳舞、唱歌样样擅长。</view>
+        <image src="">{{item.userInfo.avatar}}</image>
+        <text bindtap="goPalsInfo">{{item.userInfo.nick}}</text>
+        <text>{{item.userInfo.gender}}</text>
+        <view class="content">{{item.userInfo.tag}}</view>
         <view class="pubDate">-> 此人是您的朋友</view>
         <button type="primary" bindtap="goChat">Q</button>
       </view>

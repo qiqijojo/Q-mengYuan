@@ -28,6 +28,6 @@ App({
     labelWarp: [],
     labelCount: [],
     customInput: "",
-    mengyuanIp:'http://172.19.25.7/',
+    mengyuanIp:'http://172.19.25.7',
   }
 })

@@ -234,7 +234,7 @@ Page({
       })
     }
     wx.request({
-      url: app.globalData.mengyuanIp + 'api/user/update',
+      url: app.globalData.mengyuanIp + '/api/user/update',
       data:{
         userId: app.globalData.userId,
         nick: app.globalData.userInfo.nickName,
@@ -248,7 +248,9 @@ Page({
       },
       method: 'POST',
       success:(res=>{
-        console.log(res)
+        wx.switchTab({
+          url: '../index/index',
+        })
       }),
       fail: (err=>{
         console.log(err.message)

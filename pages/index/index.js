@@ -3,91 +3,111 @@
 let app = getApp();
 Page({
   data: {
-    userImage:'',
-    nickName:'',
-    showData:[],
-    perData:[],
-    pageIndex:0,
-    openId:'',
-   },
+    userImage: '',
+    nickName: '',
+    showData: [],
+    perData: [],
+    pageIndex: 0,
+    openId: '',
+    usrs:[]
+  },
   //事件处理函数
- 
+
   onLoad: function () {
+    
+  },
+  onReady: function () {
+
+  },
+  onShow: function () {
+    console.log(app.globalData.userId)
     var that = this;
     // wx.checkSession({
     //   success:()=>{
     //     console.log('session没过期')
     //   },
     //   fail:()=>{
-        wx.getSetting({
-          success(res) {
-            if (!res.authSetting['scope.userInfo']) {
-              wx.authorize({
-                scope: 'scope.userInfo',
-                success() {
-                  wx.getUserInfo({
-                    success:function(res){
-                      console.log(res.userInfo)
-                      Object.assign(app.globalData.userInfo,res.userInfo);
-                    }
-                  })
-                  wx.login({
-                    success: function (obj) {
-                      var that = this;
-                      if (obj.code) {
-                        wx.request({
-                          url: 'http://172.18.33.2/api/user/auth',
-                          data: { 'loginCode': obj.code},
-                          method:'POST',
-                          success:(res)=>{
-                            app.globalData.sessionId = res.data.data.sessionId;
-                            app.globalData.userId = res.data.data.userId;
-                            wx.setStorage({
+    if (!app.globalData.userId) {
+      wx.getSetting({
+        success(res) {
+          if (!res.authSetting['scope.userInfo']) {
+            wx.authorize({
+              scope: 'scope.userInfo',
+              success() {
+                wx.getUserInfo({
+                  success: function (res) {
+                    console.log(res.userInfo)
+                    Object.assign(app.globalData.userInfo, res.userInfo);
+                  }
+                })
+                wx.login({
+                  success: function (obj) {
+                    var that = this;
+                    if (obj.code) {
+                      wx.request({
+                        url: app.globalData.mengyuanIp + '/api/user/auth',
+                        data: { 'loginCode': obj.code },
+                        method: 'POST',
+                        success: (res) => {
+                          app.globalData.sessionId = res.data.data.sessionId;
+                          app.globalData.userId = res.data.data.userId;
+                          wx.setStorage(
+                            {
                               key: 'sessionId',
                               data: res.data.data.sessionId,
-                            })
-                          }
-                        })
-                        wx.navigateTo({
-                               url: '../modal/modal',
-                            })
-                        
-                      } else {
-                        console.log('获取用户登录态失败!' + res.errMsg)
-                      }
+                              success: (res) => {
+                                console.log(res)
+                              },
+                              fail: (err) => {
+                                console.log(err)
+                              }
+                            });
+                          wx.setStorage({
+                            key: 'userId',
+                            data: res.data.data.userId,
+                            success: (res) => {
+                              console.log(res)
+                            },
+                            fail: (err) => {
+                              console.log(err)
+                            }
+                          })
+                        }
+                      })
+                      wx.navigateTo({
+                        url: '../modal/modal',
+                      })
+
+                    } else {
+                      console.log('获取用户登录态失败!' + res.errMsg)
                     }
-                  });
-                },
-                fail:function(){
-                  console.log('用户拒绝授权！！！')
-                }
-              })
-            }
+                  }
+                });
+              },
+              fail: function () {
+                console.log('用户拒绝授权！！！')
+              }
+            })
           }
-        })
-    //   }
-    // })
-  },
-  onReady: function(){
-    
-  },
-  onShow: function(){
-    console.log(app.globalData.userId)
-    var self = this;
-    //  wx.request({
-    //    url: 'http://172.19.25.7/api/user/recommend',
-    //    data:{
-    //      userId:app.globalData.userId,
-    //   },
-    //      method:'POST',
-    //      success:(res)=>{
-    //        console.log(res.data);
-    //      },
-    //      fail: (err) => {
-    //        console.log(err.data);
-    //      }
-      
-    //  })
+        }
+      })
+    } else {
+      wx.request({
+        url: app.globalData.mengyuanIp + '/api/user/recommend',
+        data: {
+          userId: app.globalData.userId,
+        },
+        method: 'POST',
+        success: (res) => {
+          this.setData({
+            users:res.data.data.userInfo
+          });
+        },
+        fail: (err) => {
+          console.log(err.data);
+        }
+      })
+    }
   },
   // onReachBottom: function(){
   //   if (this.data.perData.length === 0){
@@ -107,21 +127,20 @@ Page({
   //     this.getAllItems();
   //   }
   // },
-  onShareAppMessage:function(res){
+  onShareAppMessage: function (res) {
     return {
-      title:'Q萌缘分享测试',
-      desc:'最具人气的交友平台',
-      path:'pages/index/index',
-      success:function(res){
+      title: 'Q萌缘分享测试',
+      desc: '最具人气的交友平台',
+      path: 'pages/index/index',
+      success: function (res) {
         console.log('转发成功')
       },
-      fail:function(res){
+      fail: function (res) {
         console.log('转发失败')
       }
     }
   },
-  goChat:function(){
-    console.log('111111111111')
+  goChat: function () {
     wx.navigateTo({
       url: '../wechat/wechat',
     })
