@@ -8,7 +8,8 @@
     "pages/palInfo/palInfo",
     "pages/upload/upload",
     "pages/history/history",
-    "pages/custom/custom"
+    "pages/custom/custom",
+    "pages/wechat/wechat"
   ],
   "window": {
     "enablePullDownRefresh": true,

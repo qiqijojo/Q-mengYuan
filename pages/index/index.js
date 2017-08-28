@@ -105,12 +105,10 @@ Page({
       }
     }
   },
-  //扫码
-  scanCode: function (){
-    wx.scanCode({
-      success: (res) => {
-        console.log(res)
-      }
+  goChat:function(){
+    console.log('111111111111')
+    wx.navigateTo({
+      url: '../wechat/wechat',
     })
   }
 })

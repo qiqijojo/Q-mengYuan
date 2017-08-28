@@ -12,7 +12,7 @@
         <text>女</text>
         <view class="content">我的性格是大众性格，兴趣广泛，游泳、跳舞、唱歌样样擅长。</view>
         <view class="pubDate">-> 此人是您的朋友</view>
-        <button type="primary">Q</button>
+        <button type="primary" bindtap="goChat">Q</button>
       </view>
     </view>
  
