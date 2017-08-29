@@ -12,7 +12,8 @@ Page({
    */
   data: {
     message: '',
-    text: text
+    text: text,
+    chat:'../images/chat.png'
   },
   bindChange: function (e) {
     message = e.detail.value
@@ -26,20 +27,20 @@ Page({
    */
   onLoad: function (options) {
 
-    var that = this
+    // var that = this
 
 
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      user = userInfo;
+    // //调用应用实例的方法获取全局数据
+    // app.getUserInfo(function (userInfo) {
+    //   user = userInfo;
 
-      websocket.connect(user, function (res) {
-        text = res.data + "\n" + text;
-        that.setData({
-          text: text
-        });
-      })
-    })
+    //   websocket.connect(user, function (res) {
+    //     text = res.data + "\n" + text;
+    //     that.setData({
+    //       text: text
+    //     });
+    //   })
+    // })
   },
 
   /**
