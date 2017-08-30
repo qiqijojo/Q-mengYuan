@@ -23,11 +23,12 @@ App({
     }
   },
   globalData: {
+    users:[],
     userId: '',
     userInfo: {},
     labelWarp: [],
     labelCount: [],
     customInput: "",
-    mengyuanIp:'http://172.19.25.7',
+    mengyuanIp:'http://172.18.33.4',
   }
 })

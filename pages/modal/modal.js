@@ -72,12 +72,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (query) {
+  onLoad: function () {
     if (app.globalData.userInfo.gender === 1) {
       this.setData({ gender: 'MAIL' })
     } else if (app.globalData.userInfo.gender === 2) {
       this.setData({ gender: 'FEMAIL' })
     }
+
+    
 
     // var that = this;
     // that.setData({
@@ -248,8 +250,24 @@ Page({
       },
       method: 'POST',
       success:(res=>{
-        wx.switchTab({
-          url: '../index/index',
+        console.log(that.data.allLabel)
+        wx.request({
+          url: app.globalData.mengyuanIp + '/api/user/recommend',
+          data: {
+            userId: app.globalData.userId,
+          },
+          method: 'POST',
+          success: (res) => {
+            console.log(res.data)
+            app.globalData.users = res.data.data;
+            console.log(app.globalData.users)
+            wx.switchTab({
+              url: '../index/index',
+            })
+          },
+          fail: (err) => {
+            console.log(err.data);
+          }
         })
       }),
       fail: (err=>{
