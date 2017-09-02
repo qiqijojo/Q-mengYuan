@@ -12,7 +12,6 @@ Page({
     users: []
   },
   //事件处理函数
-
   onLoad: function () {
     var that = this;
     // wx.checkSession({
@@ -88,31 +87,26 @@ Page({
 
   },
   onShow: function () {
-    this.setData({
-      users: app.globalData.users
-    })
-    this.formatLabelData(this.data.label);
-    console.log(this.data.users)
-    // var that = this;
-    // if (app.globalData.userId) {
-    //   wx.request({
-    //     url: app.globalData.mengyuanIp + '/api/user/recommend',
-    //     data: {
-    //       userId: app.globalData.userId,
-    //     },
-    //     method: 'POST',
-    //     success: (res) => {
-    //       console.log(res.data)
-    //       that.setData({
-    //         users: res.data.data
-    //       });
-    //     },
-    //     fail: (err) => {
-    //       console.log(err.data);
-    //     }
-    //   });
-    //   console.log('users: ', that.data['users'])
-    // }
+    var that = this;
+    if (app.globalData.userId) {
+      wx.request({
+        url: app.globalData.mengyuanIp + '/api/user/recommend',
+        data: {
+          userId: app.globalData.userId,
+        },
+        method: 'POST',
+        success: (res) => {
+          console.log('res.data: ', JSON.stringify(res.data))
+          that.setData({
+            'users': res.data.data
+          });
+        },
+        fail: (err) => {
+          console.log(err.data);
+        }
+      });
+      console.log('users: ', that.data['users'])
+    }
   },
   // onReachBottom: function(){
   //   if (this.data.perData.length === 0){
@@ -132,14 +126,6 @@ Page({
   //     this.getAllItems();
   //   }
   // },
-
-  formatLabelData:function(label){
-    if(label){
-      this.setData({
-        label:label.join(';')
-      })
-    }
-  },
   onShareAppMessage: function (res) {
     return {
       title: 'Q萌缘分享测试',

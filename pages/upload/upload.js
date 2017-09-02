@@ -1,19 +1,19 @@
 let app = getApp()
-Page( {
+Page({
   data: {
     userInfo: {},
     hiddenLoading: false,
     projectSource: 'https://github.com/liuxuanqiang/wechat-weapp-mall',
-    tabs: ['笑话','照片','视频'],
+    tabs: ['笑话', '照片', '视频'],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
     tabsId: 1,
     isHiddenImage: false,
-    imageList:[]
+    imageList: []
   },
-  tabClick: function (e){
-    const numId = Number(e.currentTarget.id)+1;
+  tabClick: function (e) {
+    const numId = Number(e.currentTarget.id) + 1;
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.activeIndex,
@@ -21,7 +21,7 @@ Page( {
       pics: []
     })
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     const that = this;
     /** 
      let sliderLeft = 0;
@@ -46,13 +46,13 @@ Page( {
     })
      * **/
   },
-  previeImg: function (e){ //预览图片
+  previeImg: function (e) { //预览图片
     wx.previewImage({
       current: e.currentTarget.imgUrl, // 当前显示图片的http链接
       urls: this.data.imageList[0] // 需要预览的图片http链接列表
     })
   },
-  uploadImg: function (){ //上传图片
+  uploadImg: function () { //上传图片
     let that = this;
     let single = "";
     wx.chooseImage({
@@ -61,15 +61,15 @@ Page( {
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: (res) => {
         let tempFilePaths = res.tempFilePaths;
-        for(let i = 0;i<tempFilePaths.length; i++){
+        for (let i = 0; i < tempFilePaths.length; i++) {
           single = tempFilePaths[i];
           that.data.imageList.push(tempFilePaths[i]);
           that.saveImg(single);
         }
       }
-    })  
+    })
   },
-  saveImg: function(single){
+  saveImg: function (single) {
     let arr = [];
     let that = this;
     wx.saveFile({
@@ -84,14 +84,14 @@ Page( {
       }
     })
   },
-  removeImg: function (){
+  removeImg: function () {
     let that = this;
     wx.getSavedFileList({
-      success: function(res) {
-        if (res.fileList.length > 0){
+      success: function (res) {
+        if (res.fileList.length > 0) {
           wx.removeSavedFile({
             filePath: res.fileList[0].filePath,
-            complete: function(res) {
+            complete: function (res) {
               console.log(res);
               that.setData({
                 isHiddenImage: false
@@ -114,7 +114,7 @@ Page( {
   onReachBottom: function () {
 
   },
-  onShareAppMessage: function (){
+  onShareAppMessage: function () {
     return {
       title: '萌缘',
       desc: '最具人气的小程序开发联盟!',

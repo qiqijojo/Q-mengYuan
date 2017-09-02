@@ -4,16 +4,16 @@
     <image src="../images/indexImg.jpg"></image>
   </view>
   <view class="hotText">兴趣相投</view>
- 
-    <view class="showbox" wx:for="users" wx:key="*this"> 
-      <view class="dataList">
-        <image src="{{item.userInfo.avatar}}"></image>
-        <text bindtap="goPalsInfo">{{item.userInfo.nick}}</text>
-        <text>{{item.userInfo.gender}}</text>
-        <view class="content">看电影；看书；写代码；游泳；打篮球；羽毛球；短跑；长跑</view>
-        <view class="pubDate">-> 此人是您的朋友</view>
-        <button type="primary" bindtap="goChat">Q</button>
-      </view>
+
+  <view class="showbox" wx:for="users" wx:key="*this">
+    <view class="dataList">
+      <image src="{{item.userInfo.avatar}}"></image>
+      <text bindtap="goPalsInfo">{{item.userInfo.nick}}</text>
+      <text>{{item.userInfo.gender}}</text>
+      <view class="content">看电影；看书；写代码；游泳；打篮球；羽毛球；短跑；长跑</view>
+      <view class="pubDate">-> 此人是您的朋友</view>
+      <button type="primary" bindtap="goChat">Q</button>
     </view>
- 
+  </view>
+
 </view>
