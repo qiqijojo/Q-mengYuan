@@ -1,5 +1,5 @@
 // history.js
-var app = getApp();
+var app = getApp()
 Page({
 
   /**
@@ -53,8 +53,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.data.pageIndex++;
-    this.getData();
+    this.data.pageIndex++
+    this.getData()
   },
 
   /**
@@ -77,25 +77,25 @@ Page({
   * 表单提交
   * */
   formSubmit: function (e) {
-    let text = e.detail.value.textarea;
-    if (!text.trim()) { //textarea为空
+    let text = e.detail.value.textarea
+    if (!text.trim()) { // textarea为空
       wx.showModal({
         title: '提示',
         content: '输入框不能为空!'
-      });
+      })
     } else {
-      let arrText = text.split("");
+      let arrText = text.split('')
       if (arrText.length > 15) {
         wx.showModal({
           title: '提示',
           content: '输入内容超过15字，请重新输入~~'
-        });
+        })
       } else {
-        app.globalData.customInput = text.trim();
+        app.globalData.customInput = text.trim()
         wx.navigateBack({
           url: '../modal/modal'
         })
       }
     }
   }
-});
+})

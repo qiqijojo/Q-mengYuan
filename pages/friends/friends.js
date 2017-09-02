@@ -6,12 +6,12 @@ Page({
    */
   data: {
     userInfo: [
-      { userImgs: "../../images/headImg1.jpg", publishTime: "2017-8-21 10:00", charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。" },
-      { userImgs: "../../images/headImg2.jpg", publishTime: "2017-8-21 10:00", charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。" },
-      { userImgs: "../../images/headImg3.jpg", publishTime: "2017-8-21 10:00", charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。" },
-      { userImgs: "../../images/headImg4.jpg", publishTime: "2017-8-21 10:00", charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。" },
-      { userImgs: "../../images/headImg5.jpg", publishTime: "2017-8-21 10:00", charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。" },
-      { userImgs: "../../images/headImg6.jpg", publishTime: "2017-8-21 10:00", charactDesc: "我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。" }
+      { userImgs: '../../images/headImg1.jpg', publishTime: '2017-8-21 10:00', charactDesc: '我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。' },
+      { userImgs: '../../images/headImg2.jpg', publishTime: '2017-8-21 10:00', charactDesc: '我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。' },
+      { userImgs: '../../images/headImg3.jpg', publishTime: '2017-8-21 10:00', charactDesc: '我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。' },
+      { userImgs: '../../images/headImg4.jpg', publishTime: '2017-8-21 10:00', charactDesc: '我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。' },
+      { userImgs: '../../images/headImg5.jpg', publishTime: '2017-8-21 10:00', charactDesc: '我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。' },
+      { userImgs: '../../images/headImg6.jpg', publishTime: '2017-8-21 10:00', charactDesc: '我是一个性格活泼开朗的少年，我的爱好是喜欢看书，没事的时候喜欢听着音乐吼两嗓子，喜欢结交朋友。' }
     ]
   },
 
@@ -71,16 +71,16 @@ Page({
 
   },
   deleteItem: function (e) {
-    var that = this;
+    var that = this
     wx.showModal({
       title: '',
       content: '确定要删除此萌友及其聊天内容吗？',
       success: (res) => {
         if (res.confirm) {
-          let id = e.currentTarget.dataset.id;
+          let id = e.currentTarget.dataset.id
           if (that.data.userInfo.length) {
-            let userData = that.data.userInfo;
-            userData.splice(id, 1);
+            let userData = that.data.userInfo
+            userData.splice(id, 1)
             that.setData({
               userInfo: userData
             })
@@ -88,12 +88,12 @@ Page({
           wx.showToast({
             title: '删除成功',
             icon: 'success',
-            mask: true,
+            mask: true
           })
         } else if (res.cancel) {
-          return;
+
         }
       }
     })
   }
-});
+})

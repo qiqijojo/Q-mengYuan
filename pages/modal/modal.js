@@ -1,5 +1,5 @@
 // pages/modal/modal.js
-var app = getApp();
+var app = getApp()
 Page({
 
   /**
@@ -12,18 +12,18 @@ Page({
     modalHidden: true,
     nocancel: false,
     selfLabel: [
-      { label: "看小说" },
-      { label: "看电影" },
-      { label: "打游戏" },
-      { label: "写代码" },
-      { label: "种花" }
+      { label: '看小说' },
+      { label: '看电影' },
+      { label: '打游戏' },
+      { label: '写代码' },
+      { label: '种花' }
     ],
     allLabel: [],
     labelWarp: [],
     labelArr: [],
-    lightColor: "" //颜色高亮
+    lightColor: '' // 颜色高亮
   },
-  //事件处理函数
+  // 事件处理函数
 
   // backIndex: function () {
   //   var that = this;
@@ -79,8 +79,6 @@ Page({
       this.setData({ gender: 'FEMAIL' })
     }
 
-
-
     // var that = this;
     // that.setData({
     //   anonymity: query.userName,
@@ -108,24 +106,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that = this;
-    let labelArr = [];
+    let that = this
+    // let labelArr = []
     if (app.globalData.customInput) {
       if (app.globalData.labelWarp.length > 0) {
         let hasLabel = app.globalData.labelWarp.some(val => {
           return val.label == app.globalData.customInput
-        });
+        })
         if (!hasLabel) {
-          app.globalData.labelWarp.push({ label: app.globalData.customInput });
+          app.globalData.labelWarp.push({ label: app.globalData.customInput })
           that.setData({
             labelWarp: app.globalData.labelWarp
           })
         }
       } else {
-        app.globalData.labelWarp.push({ label: app.globalData.customInput });
+        app.globalData.labelWarp.push({ label: app.globalData.customInput })
         that.setData({
           labelWarp: app.globalData.labelWarp
-        });
+        })
       }
     }
   },
@@ -164,30 +162,30 @@ Page({
   onShareAppMessage: function () {
 
   },
-  //添加标签
+  // 添加标签
   addLabel: function (e) {
     if (this.data.selfLabel.length) {
-      let labelIndex = e.currentTarget.dataset.index;
+      let labelIndex = e.currentTarget.dataset.index
       if (app.globalData.labelCount.length > 0) {
-        if (!app.globalData.labelCount.includes(labelIndex)) {  //判断全局globalData对象里面的labelCount数组里面是否包含labelIndex，为了避免让同一种标签重复被选择，如果没有则存储，如果有则return终止;
-          this.filterLabel(labelIndex);
+        if (!app.globalData.labelCount.includes(labelIndex)) {  // 判断全局globalData对象里面的labelCount数组里面是否包含labelIndex，为了避免让同一种标签重复被选择，如果没有则存储，如果有则return终止;
+          this.filterLabel(labelIndex)
         } else {
-          return false;
+          return false
         }
       } else {
-        this.filterLabel(labelIndex);
+        this.filterLabel(labelIndex)
       }
     }
   },
   filterLabel: function (index) {
-    //该方法是将选中的标签的数据存放起来，在自定义标签下面的输入框中展示；
-    let selfLabel = this.data.selfLabel;
+    // 该方法是将选中的标签的数据存放起来，在自定义标签下面的输入框中展示；
+    let selfLabel = this.data.selfLabel
     for (let i = 0; i < selfLabel.length; i++) {
       if (i == index) {
-        selfLabel[index]["flag"] = index;
-        app.globalData.labelWarp.push(selfLabel[index]);
-        app.globalData.labelCount.push(index);
-        selfLabel[i].lightColor = "#1AAD19";
+        selfLabel[index]['flag'] = index
+        app.globalData.labelWarp.push(selfLabel[index])
+        app.globalData.labelCount.push(index)
+        selfLabel[i].lightColor = '#1AAD19'
       }
     }
     this.setData({
@@ -195,42 +193,42 @@ Page({
       selfLabel: selfLabel
     })
   },
-  //删除标签
+  // 删除标签
   deleteLabel: function (e) {
-    let index = e.currentTarget.dataset.index;
-    let flag = e.currentTarget.dataset.flag;
-    let labelWarp = this.data.labelWarp;
-    let selfLabel = this.data.selfLabel;
+    let index = e.currentTarget.dataset.index
+    let flag = e.currentTarget.dataset.flag
+    let labelWarp = this.data.labelWarp
+    let selfLabel = this.data.selfLabel
 
     if (labelWarp.length > 0) {
-      labelWarp.splice(index, 1);
-      app.globalData.labelWarp.splice(index, 1);
-      app.globalData.labelCount.splice(index, 1);
+      labelWarp.splice(index, 1)
+      app.globalData.labelWarp.splice(index, 1)
+      app.globalData.labelCount.splice(index, 1)
       selfLabel.map((ele, k) => {
         if (k == flag) {
-          ele.lightColor = "#F8F8F8";
+          ele.lightColor = '#F8F8F8'
         }
-      });
+      })
       this.setData({
         labelWarp: labelWarp,
         selfLabel: selfLabel
       })
     }
   },
-  //添加自定义标签
+  // 添加自定义标签
   addInterest: function () {
     wx.navigateTo({
       url: '../custom/custom'
     })
   },
-  //完成兴趣标签，提交标签
+  // 完成兴趣标签，提交标签
   submitLabel: function () {
-    var that = this;
+    var that = this
     if (app.globalData.labelWarp) {
-      let label = [];
+      let label = []
       app.globalData.labelWarp.map((item) => {
         return label.push(item.label)
-      });
+      })
       that.setData({
         allLabel: label
       })
@@ -249,30 +247,30 @@ Page({
         tag: that.data.allLabel
       },
       method: 'POST',
-      success: (res => {
+      success: res => {
         console.log(that.data.allLabel)
         wx.request({
           url: app.globalData.mengyuanIp + '/api/user/recommend',
           data: {
-            userId: app.globalData.userId,
+            userId: app.globalData.userId
           },
           method: 'POST',
           success: (res) => {
             console.log(res.data)
-            app.globalData.users = res.data.data;
+            app.globalData.users = res.data.data
             console.log(app.globalData.users)
             wx.switchTab({
-              url: '../index/index',
+              url: '../index/index'
             })
           },
           fail: (err) => {
-            console.log(err.data);
+            console.log(err.data)
           }
         })
-      }),
-      fail: (err => {
+      },
+      fail: err => {
         console.log(err.message)
-      })
+      }
     })
   }
-});
+})

@@ -1,0 +1,7 @@
+.svn/
+.idea/
+.DS_Store
+node_modules/
+dist/
+jsconfig.json
+typings/

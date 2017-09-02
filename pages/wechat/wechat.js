@@ -1,10 +1,10 @@
 // pages/wechat/wechat.js
 
-var websocket = require('../../utils/websocket.js');
-var app = getApp()
-var message = '',
-  text = '',
-  user = {};
+var websocket = require('../../utils/websocket.js')
+// var app = getApp()
+var message = ''
+var text = ''
+var user = {}
 Page({
 
   /**
@@ -18,9 +18,9 @@ Page({
   bindChange: function (e) {
     message = e.detail.value
   },
-  //事件处理函数
+  // 事件处理函数
   add: function (e) {
-    websocket.send(user.nickName + " : " + message);
+    websocket.send(user.nickName + ' : ' + message)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -28,7 +28,6 @@ Page({
   onLoad: function (options) {
 
     // var that = this
-
 
     // //调用应用实例的方法获取全局数据
     // app.getUserInfo(function (userInfo) {

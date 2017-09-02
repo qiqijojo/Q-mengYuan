@@ -1,6 +1,6 @@
-//index.js
-//获取应用实例
-let app = getApp();
+// index.js
+// 获取应用实例
+let app = getApp()
 Page({
   data: {
     userImage: '',
@@ -11,37 +11,37 @@ Page({
     openId: '',
     users: []
   },
-  //事件处理函数
+  // 事件处理函数
   onLoad: function () {
-    var that = this;
+    var that = this
     // wx.checkSession({
     //   success:()=>{
     //     console.log('session没过期')
     //   },
     //   fail:()=>{
     wx.getSetting({
-      success(res) {
+      success (res) {
         if (!res.authSetting['scope.userInfo']) {
           wx.authorize({
             scope: 'scope.userInfo',
-            success() {
+            success () {
               wx.getUserInfo({
                 success: function (res) {
                   console.log(res.userInfo)
-                  Object.assign(app.globalData.userInfo, res.userInfo);
+                  Object.assign(app.globalData.userInfo, res.userInfo)
                 }
               })
               wx.login({
                 success: function (obj) {
-                  var that = this;
+                  var that = this
                   if (obj.code) {
                     wx.request({
                       url: app.globalData.mengyuanIp + '/api/user/auth',
                       data: { 'loginCode': obj.code },
                       method: 'POST',
                       success: (res) => {
-                        app.globalData.sessionId = res.data.data.sessionId;
-                        app.globalData.userId = res.data.data.userId;
+                        app.globalData.sessionId = res.data.data.sessionId
+                        app.globalData.userId = res.data.data.userId
                         wx.setStorage(
                           {
                             key: 'sessionId',
@@ -52,7 +52,7 @@ Page({
                             fail: (err) => {
                               console.log(err)
                             }
-                          });
+                          })
                         wx.setStorage({
                           key: 'userId',
                           data: res.data.data.userId,
@@ -66,14 +66,13 @@ Page({
                       }
                     })
                     wx.navigateTo({
-                      url: '../modal/modal',
+                      url: '../modal/modal'
                     })
-
                   } else {
                     console.log('获取用户登录态失败!' + res.errMsg)
                   }
                 }
-              });
+              })
             },
             fail: function () {
               console.log('用户拒绝授权！！！')
@@ -87,24 +86,24 @@ Page({
 
   },
   onShow: function () {
-    var that = this;
+    var that = this
     if (app.globalData.userId) {
       wx.request({
         url: app.globalData.mengyuanIp + '/api/user/recommend',
         data: {
-          userId: app.globalData.userId,
+          userId: app.globalData.userId
         },
         method: 'POST',
         success: (res) => {
           console.log('res.data: ', JSON.stringify(res.data))
           that.setData({
             'users': res.data.data
-          });
+          })
         },
         fail: (err) => {
-          console.log(err.data);
+          console.log(err.data)
         }
-      });
+      })
       console.log('users: ', that.data['users'])
     }
   },
@@ -141,7 +140,7 @@ Page({
   },
   goChat: function () {
     wx.navigateTo({
-      url: '../wechat/wechat',
+      url: '../wechat/wechat'
     })
   }
 })
