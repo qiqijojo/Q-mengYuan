@@ -1,8 +1,7 @@
 const app = getApp()
 Page({
   data: {
-    userInfo: {}/*,
-    hiddenLoading: false */
+    userInfo: {}
   },
 
   onLoad: function () {
@@ -39,19 +38,19 @@ Page({
       }
     })
   },
-  // 跳转到历史记录页面
-  jumpToHistory: function (e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../history/history?id=' + id
-    })
-  },
-  // 跳转到上传页面
-  jumpToUpload: function () {
-    wx.navigateTo({
-      url: '../upload/upload'
-    })
-  },
+  // // 跳转到历史记录页面
+  // jumpToHistory: function (e) {
+  //   let id = e.currentTarget.dataset.id
+  //   wx.navigateTo({
+  //     url: '../history/history?id=' + id
+  //   })
+  // },
+  // // 跳转到上传页面
+  // jumpToUpload: function () {
+  //   wx.navigateTo({
+  //     url: '../upload/upload'
+  //   })
+  // },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
