@@ -64,12 +64,12 @@ App({
   },
   globalData: {
     userId: '',
-    userInfo: '',
+    userInfo: {},
     labelWarp: [],
     labelCount: [],
     customInput: '',
-    // mengyuanIp: 'http://172.19.25.44',
-    mengyuanIp: 'https://yuan.weimob.com',
+    mengyuanIp: 'http://172.18.33.4',
+    // mengyuanIp: 'https://yuan.weimob.com',
     users: []
   }
 })
