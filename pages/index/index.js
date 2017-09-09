@@ -41,11 +41,13 @@ Page({
                   Object.assign(app.globalData.userInfo, res.userInfo)
                   console.log('111 new userInfo: ', JSON.stringify(app.globalData.userInfo))
                   // 从萌缘服务器获取用户之前填的信息
+                  console.log(app.globalData)
+                  
                   wx.request({
                     url: app.globalData.mengyuanIp + '/api/user/getUserInfo',
                     data: {
-                      'userId': userId,
-                      'sessionId': sessionId
+                      'userId': app.globalData.userId,
+                      'sessionId': app.globalData.sessionId
                     },
                     method: 'POST',
                     success: (res) => {

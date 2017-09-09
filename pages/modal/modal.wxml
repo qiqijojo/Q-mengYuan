@@ -7,7 +7,7 @@
     <view class="label">
         <view class="choice-label">
           <block wx:for="{{selfLabel}}" wx:key="*this">
-            <button size="mini" type="default" data-index="{{index}}" hover-class="button-hover" bindtap="addLabel" style="background:{{item.lightColor}}">{{item.label}}</button>
+            <button size="mini" type="default" data-index="{{index}}" hover-class="button-hover" bindtap="addLabel" style="background:{{item.lightColor}};color:{{item.textColor}}">{{item.label}}</button>
           </block>
           <button size="mini" type="default" bindtap="addInterest">+</button>
         </view>

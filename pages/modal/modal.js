@@ -21,7 +21,8 @@ Page({
     allLabel: [],
     labelWarp: [],
     labelArr: [],
-    lightColor: '' // 颜色高亮
+    lightColor: '', // 颜色高亮
+    textColor:""
   },
   // 事件处理函数
 
@@ -185,7 +186,8 @@ Page({
         selfLabel[index]['flag'] = index
         app.globalData.labelWarp.push(selfLabel[index])
         app.globalData.labelCount.push(index)
-        selfLabel[i].lightColor = '#1AAD19'
+        selfLabel[i].lightColor = '#ee5a52'
+        selfLabel[i].textColor = '#fff'
       }
     }
     this.setData({
@@ -206,7 +208,9 @@ Page({
       app.globalData.labelCount.splice(index, 1)
       selfLabel.map((ele, k) => {
         if (k == flag) {
-          ele.lightColor = '#F8F8F8'
+          ele.lightColor = '#F8F8F8',
+          ele.textColor = '#333'
+
         }
       })
       this.setData({
