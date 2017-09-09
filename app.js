@@ -30,6 +30,6 @@ App({
     labelCount: [],
     customInput: '',
     // mengyuanIp: 'http://172.19.25.44'
-    mengyuanIp: 'https://yuan.weimob.com'
+    mengyuanIp: 'https://hackathon-yuan.dearitgirl.com'
   }
 })
