@@ -74,11 +74,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    console.log(app.globalData.userInfo.gender)
     if (app.globalData.userInfo.gender === 1) {
       this.setData({ gender: 'MAIL' })
     } else if (app.globalData.userInfo.gender === 2) {
       this.setData({ gender: 'FEMAIL' })
     }
+    console.log('11111' + ':' + this.data.gender)
 
     // var that = this;
     // that.setData({
@@ -237,12 +239,13 @@ Page({
         allLabel: label
       })
     }
+    console.log('2222' + ':' + that.data.gender)
     wx.request({
       url: app.globalData.mengyuanIp + '/api/user/update',
       data: {
         userId: app.globalData.userId,
         nick: app.globalData.userInfo.nickName,
-        gender: that.data.gender,
+        gender: app.globalData.userInfo.gender === 1 ? 'MAIL' : 'FEMAIL',
         language: app.globalData.userInfo.language,
         city: app.globalData.userInfo.city,
         province: app.globalData.userInfo.province,

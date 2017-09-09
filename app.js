@@ -64,7 +64,7 @@ App({
   },
   globalData: {
     userId: '',
-    userInfo: '',
+    userInfo: {},
     labelWarp: [],
     labelCount: [],
     customInput: '',

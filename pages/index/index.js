@@ -26,6 +26,7 @@ Page({
     } catch (e) {
       throw new Error(e)
     }
+    console.log(`userId: ${userId}, sessionId: ${sessionId}`)
     wx.getSetting({
       success (res) {
         if (!res.authSetting['scope.userInfo']) {
@@ -61,8 +62,9 @@ Page({
                         wx.navigateTo({
                           url: '../modal/modal'
                         })
+                      } else {
+                        that.getRecom()
                       }
-                      that.getRecom()
                     }
                   })
                 }
@@ -133,7 +135,10 @@ Page({
   },
   onShow: function () {
     var that = this
-    that.getRecom()
+    // 用户之前没有填标签
+    if (app.globalData.userInfo && app.globalData.userInfo.tag && app.globalData.userInfo.tag.length !== 0) {
+      that.getRecom()
+    }
     // if (app.globalData.userId) {
     //   wx.request({
     //     url: app.globalData.mengyuanIp + '/api/user/recommend',
@@ -202,7 +207,7 @@ Page({
         success: (res) => {
           console.log('res.data: ', JSON.stringify(res.data))
           that.setData({
-            'users': res.data.data
+            users: res.data.data
           })
         },
         fail: (err) => {
